@@ -1,0 +1,19 @@
+aid: amdocs
+url: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/apis.yml
+apis:
+- aid: amdocs:amdocs-api
+  name: Amdocs / NetCracker BSS/OSS API
+  tags:
+  - Telecom
+  - BSS
+  - OSS
+  - Billing
+  - SOAP
+  image: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/image.png
+  humanURL: https://www.amdocs.com/
+  baseURL: https://api.amdocs.example.com
+  properties:
+  - url: https://www.amdocs.com/
+    type: Documentation
+  description: >-
+    Amdocs (including NetCracker) provides BSS/OSS platforms for telecom operators, covering billing, provisioning, customer management, and network inventory. APIs use REST and SOAP protocols to integrate with CRM, network management, and revenue assurance systems.
