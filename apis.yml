@@ -22,6 +22,10 @@ apis:
     type: Reference
   - url: https://knowledge.amdocs-dbs.com/
     type: Documentation
+  - url: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/openapi/amdocs-connectx-openapi.yml
+    type: OpenAPI
+  - url: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/asyncapi/amdocs-events-asyncapi.yml
+    type: AsyncAPI
   description: >-
     The Amdocs connectX BSS API provides cloud-native SaaS BSS capabilities for telecom operators, covering billing, provisioning, customer management, and subscription lifecycle. REST APIs enable integration with CRM, network management, and revenue assurance systems for digital telco operations.
 
@@ -75,6 +79,14 @@ common:
     type: GettingStarted
   - url: https://github.com/open-amdocs
     type: GitHubOrganization
+  - url: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/openapi/amdocs-connectx-openapi.yml
+    type: OpenAPI
+  - url: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/asyncapi/amdocs-events-asyncapi.yml
+    type: AsyncAPI
+  - url: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/json-schema/amdocs-customer-schema.json
+    type: JSONSchema
+  - url: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/json-ld/amdocs-context.jsonld
+    type: JSONLDContext
 
 maintainers:
 - name: Kin Lane

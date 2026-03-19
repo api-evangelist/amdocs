@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/json-schema/amdocs-customer-schema.json",
+  "title": "Amdocs Customer",
+  "description": "JSON Schema for an Amdocs BSS telecom customer account.",
+  "type": "object",
+  "required": ["customerId", "customerType", "status"],
+  "properties": {
+    "customerId": {
+      "type": "string",
+      "description": "Unique customer identifier"
+    },
+    "customerType": {
+      "type": "string",
+      "enum": ["Individual", "Business", "Government"],
+      "description": "Classification of the customer"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["Active", "Inactive", "Suspended", "Terminated"]
+    },
+    "accountNumber": {
+      "type": "string",
+      "description": "Customer-facing account number"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "companyName": {
+      "type": "string",
+      "description": "Company name for Business/Government customers"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "address": {
+      "$ref": "#/$defs/Address"
+    },
+    "billingAddress": {
+      "$ref": "#/$defs/Address"
+    },
+    "subscriptions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Subscription"
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "$defs": {
+    "Address": {
+      "type": "object",
+      "properties": {
+        "street": {"type": "string"},
+        "city": {"type": "string"},
+        "state": {"type": "string"},
+        "postalCode": {"type": "string"},
+        "country": {"type": "string"}
+      }
+    },
+    "Subscription": {
+      "type": "object",
+      "required": ["subscriptionId", "productId", "status"],
+      "properties": {
+        "subscriptionId": {"type": "string"},
+        "productId": {"type": "string"},
+        "productName": {"type": "string"},
+        "status": {
+          "type": "string",
+          "enum": ["Active", "Suspended", "Cancelled", "Pending"]
+        },
+        "startDate": {"type": "string", "format": "date"},
+        "endDate": {"type": "string", "format": "date"},
+        "monthlyCharge": {"type": "number", "minimum": 0},
+        "currency": {"type": "string"}
+      }
+    }
+  }
+}

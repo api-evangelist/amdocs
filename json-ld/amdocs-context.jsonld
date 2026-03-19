@@ -1,0 +1,79 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "amdocs": "https://devportal.amdocs-dbs.com/api/",
+    "schema": "https://schema.org/",
+    "tmf": "https://tmforum.org/schemas/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Customer": {
+      "@id": "schema:Person",
+      "@context": {
+        "customerId": {"@id": "amdocs:customerId", "@type": "xsd:string"},
+        "customerType": {"@id": "amdocs:customerType"},
+        "status": {"@id": "amdocs:accountStatus"},
+        "accountNumber": {"@id": "amdocs:accountNumber"},
+        "firstName": {"@id": "schema:givenName"},
+        "lastName": {"@id": "schema:familyName"},
+        "companyName": {"@id": "schema:legalName"},
+        "email": {"@id": "schema:email"},
+        "phone": {"@id": "schema:telephone"},
+        "address": {"@id": "schema:address"},
+        "subscriptions": {"@id": "amdocs:subscription", "@container": "@set"}
+      }
+    },
+
+    "Subscription": {
+      "@id": "schema:Service",
+      "@context": {
+        "subscriptionId": {"@id": "amdocs:subscriptionId"},
+        "productId": {"@id": "amdocs:productId"},
+        "productName": {"@id": "schema:name"},
+        "status": {"@id": "amdocs:subscriptionStatus"},
+        "startDate": {"@id": "schema:startDate", "@type": "xsd:date"},
+        "endDate": {"@id": "schema:endDate", "@type": "xsd:date"},
+        "monthlyCharge": {"@id": "schema:price", "@type": "xsd:decimal"},
+        "currency": {"@id": "schema:priceCurrency"}
+      }
+    },
+
+    "Invoice": {
+      "@id": "schema:Invoice",
+      "@context": {
+        "invoiceId": {"@id": "amdocs:invoiceId"},
+        "invoiceNumber": {"@id": "schema:identifier"},
+        "customerId": {"@id": "schema:customer"},
+        "status": {"@id": "schema:paymentStatus"},
+        "invoiceDate": {"@id": "schema:dateIssued", "@type": "xsd:date"},
+        "dueDate": {"@id": "schema:paymentDueDate", "@type": "xsd:date"},
+        "totalAmount": {"@id": "schema:totalPrice"},
+        "taxAmount": {"@id": "schema:taxTotal"},
+        "currency": {"@id": "schema:priceCurrency"}
+      }
+    },
+
+    "Product": {
+      "@id": "schema:Product",
+      "@context": {
+        "productId": {"@id": "schema:productID"},
+        "productName": {"@id": "schema:name"},
+        "productType": {"@id": "schema:category"},
+        "description": {"@id": "schema:description"},
+        "monthlyPrice": {"@id": "schema:price"},
+        "currency": {"@id": "schema:priceCurrency"},
+        "features": {"@id": "schema:additionalProperty", "@container": "@set"}
+      }
+    },
+
+    "Address": {
+      "@id": "schema:PostalAddress",
+      "@context": {
+        "street": {"@id": "schema:streetAddress"},
+        "city": {"@id": "schema:addressLocality"},
+        "state": {"@id": "schema:addressRegion"},
+        "postalCode": {"@id": "schema:postalCode"},
+        "country": {"@id": "schema:addressCountry"}
+      }
+    }
+  }
+}

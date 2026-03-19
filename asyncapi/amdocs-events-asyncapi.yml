@@ -1,0 +1,239 @@
+asyncapi: 2.6.0
+info:
+  title: Amdocs connectX BSS Event API
+  description: >-
+    The Amdocs connectX BSS Event API delivers real-time event notifications for
+    telecom BSS operations including customer lifecycle events, subscription changes,
+    billing events, and provisioning status updates via webhooks and message queues.
+  version: 1.0.0
+  contact:
+    name: Amdocs Developer Portal
+    url: https://devportal.amdocs-dbs.com/
+
+servers:
+  production:
+    url: wss://events.amdocs-dbs.com
+    protocol: wss
+    description: Amdocs BSS Production WebSocket event stream
+
+channels:
+  customer/created:
+    description: Published when a new customer account is created in the BSS system.
+    subscribe:
+      operationId: onCustomerCreated
+      summary: Customer account created
+      description: Receive notifications when a new customer is onboarded into the BSS.
+      tags:
+        - name: Customers
+      message:
+        $ref: '#/components/messages/CustomerCreatedEvent'
+
+  customer/updated:
+    description: Published when a customer account is modified.
+    subscribe:
+      operationId: onCustomerUpdated
+      summary: Customer account updated
+      description: Receive notifications when customer account data changes including status transitions.
+      tags:
+        - name: Customers
+      message:
+        $ref: '#/components/messages/CustomerUpdatedEvent'
+
+  subscription/activated:
+    description: Published when a service subscription becomes active.
+    subscribe:
+      operationId: onSubscriptionActivated
+      summary: Subscription activated
+      description: Receive notifications when a service subscription transitions to Active status.
+      tags:
+        - name: Subscriptions
+      message:
+        $ref: '#/components/messages/SubscriptionEvent'
+
+  subscription/suspended:
+    description: Published when a service subscription is suspended.
+    subscribe:
+      operationId: onSubscriptionSuspended
+      summary: Subscription suspended
+      description: Receive notifications when a service subscription is suspended (e.g., for non-payment).
+      tags:
+        - name: Subscriptions
+      message:
+        $ref: '#/components/messages/SubscriptionEvent'
+
+  subscription/cancelled:
+    description: Published when a service subscription is cancelled.
+    subscribe:
+      operationId: onSubscriptionCancelled
+      summary: Subscription cancelled
+      description: Receive notifications when a customer cancels a service subscription.
+      tags:
+        - name: Subscriptions
+      message:
+        $ref: '#/components/messages/SubscriptionEvent'
+
+  billing/invoice/created:
+    description: Published when a new invoice is generated for a customer.
+    subscribe:
+      operationId: onInvoiceCreated
+      summary: Invoice created
+      description: Receive notifications when a billing invoice is generated for a customer.
+      tags:
+        - name: Billing
+      message:
+        $ref: '#/components/messages/InvoiceEvent'
+
+  billing/payment/received:
+    description: Published when a payment is received against an invoice.
+    subscribe:
+      operationId: onPaymentReceived
+      summary: Payment received
+      description: Receive notifications when a payment is recorded against a customer invoice.
+      tags:
+        - name: Billing
+      message:
+        $ref: '#/components/messages/PaymentEvent'
+
+components:
+  messages:
+    CustomerCreatedEvent:
+      name: CustomerCreatedEvent
+      title: Customer Created
+      summary: Notification that a new customer account was created
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/CustomerEventPayload'
+
+    CustomerUpdatedEvent:
+      name: CustomerUpdatedEvent
+      title: Customer Updated
+      summary: Notification that a customer account was modified
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/CustomerEventPayload'
+
+    SubscriptionEvent:
+      name: SubscriptionEvent
+      title: Subscription Status Changed
+      summary: Notification that a subscription status changed
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/SubscriptionEventPayload'
+
+    InvoiceEvent:
+      name: InvoiceEvent
+      title: Invoice Created
+      summary: Notification that an invoice was generated
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/InvoiceEventPayload'
+
+    PaymentEvent:
+      name: PaymentEvent
+      title: Payment Received
+      summary: Notification that a payment was recorded
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/PaymentEventPayload'
+
+  schemas:
+    EventEnvelope:
+      type: object
+      required: [eventId, eventType, eventTime, tenantId]
+      properties:
+        eventId:
+          type: string
+          description: Unique event identifier (UUID)
+        eventType:
+          type: string
+          description: Type of event
+        eventTime:
+          type: string
+          format: date-time
+        tenantId:
+          type: string
+          description: BSS tenant identifier
+
+    CustomerEventPayload:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            customerId:
+              type: string
+            accountNumber:
+              type: string
+            customerType:
+              type: string
+              enum: [Individual, Business, Government]
+            status:
+              type: string
+              enum: [Active, Inactive, Suspended, Terminated]
+            email:
+              type: string
+            previousStatus:
+              type: string
+              description: Previous status (for update events)
+
+    SubscriptionEventPayload:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            subscriptionId:
+              type: string
+            customerId:
+              type: string
+            productId:
+              type: string
+            productName:
+              type: string
+            status:
+              type: string
+              enum: [Active, Suspended, Cancelled, Pending]
+            previousStatus:
+              type: string
+            effectiveDate:
+              type: string
+              format: date
+
+    InvoiceEventPayload:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            invoiceId:
+              type: string
+            invoiceNumber:
+              type: string
+            customerId:
+              type: string
+            totalAmount:
+              type: number
+            currency:
+              type: string
+            dueDate:
+              type: string
+              format: date
+
+    PaymentEventPayload:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            paymentId:
+              type: string
+            invoiceId:
+              type: string
+            customerId:
+              type: string
+            amount:
+              type: number
+            currency:
+              type: string
+            paymentMethod:
+              type: string
+              enum: [CreditCard, BankTransfer, DirectDebit, Cash]
+            paymentDate:
+              type: string
+              format: date
