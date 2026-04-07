@@ -19,15 +19,15 @@ security:
   - oauth2: []
 
 tags:
-  - name: Customers
-    description: Customer account management
-  - name: Subscriptions
-    description: Subscription lifecycle management
   - name: Billing
     description: Billing and invoice operations
+  - name: Customers
+    description: Customer account management
   - name: Products
     description: Product catalog management
 
+  - name: Subscriptions
+    description: Subscription lifecycle management
 paths:
   /v1/customers:
     get:

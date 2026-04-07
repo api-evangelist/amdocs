@@ -1,36 +1,30 @@
 aid: amdocs
-url: 
-  https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/apis.yml
 apis:
   - aid: amdocs:amdocs-connectx-api
     name: Amdocs connectX BSS API
     tags:
-      - Telecom
-      - BSS
       - Billing
+      - BSS
       - Provisioning
       - REST
       - SaaS
-    image: 
-      https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/image.png
+      - Telecom
+    image: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/image.png
     humanURL: https://devportal.amdocs-dbs.com/
     baseURL: https://api.amdocs-dbs.com
     properties:
       - url: https://devportal.amdocs-dbs.com/
         type: Documentation
-      - url: 
-          https://developer.amdocs-dbs.com/reference/getting-started-with-your-api
+      - url: https://developer.amdocs-dbs.com/reference/getting-started-with-your-api
         type: GettingStarted
-      - url: 
-          https://developer.amdocs-dbs.com/reference/getting-started-with-your-api
+      - url: https://developer.amdocs-dbs.com/reference/getting-started-with-your-api
         type: Reference
       - url: https://knowledge.amdocs-dbs.com/
         type: Documentation
-      - url: 
-          https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/openapi/amdocs-connectx-openapi.yml
+      - url: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/openapi/amdocs-connectx-openapi.yml
         type: OpenAPI
-      - url: 
-          https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/asyncapi/amdocs-events-asyncapi.yml
+      - url: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/asyncapi/amdocs-events-asyncapi.yml
         type: AsyncAPI
     description: >-
       The Amdocs connectX BSS API provides cloud-native SaaS BSS capabilities for
@@ -41,13 +35,12 @@ apis:
   - aid: amdocs:amdocs-marketone-api
     name: Amdocs MarketONE API
     tags:
-      - Telecom
       - BSS
       - Digital Services
-      - REST
       - Order Management
-    image: 
-      https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/image.png
+      - REST
+      - Telecom
+    image: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/image.png
     humanURL: https://developer.m1amdocs.com/
     baseURL: https://api.m1amdocs.com
     properties:
@@ -55,8 +48,7 @@ apis:
         type: Documentation
       - url: https://developer.m1amdocs.com/api/
         type: Reference
-      - url: 
-          https://developer.m1amdocs.com/documentation/Content/E-API%20Guides/ULMProcessGuide/ProcessCatalogue/AuthenticateUserProcess.htm
+      - url: https://developer.m1amdocs.com/documentation/Content/E-API%20Guides/ULMProcessGuide/ProcessCatalogue/AuthenticateUserProcess.htm
         type: Authentication
     description: >-
       The Amdocs MarketONE API provides digital BSS capabilities for telecoms, supporting
@@ -67,14 +59,13 @@ apis:
   - aid: amdocs:amdocs-netcracker-oss-api
     name: Amdocs / NetCracker OSS API
     tags:
-      - Telecom
-      - OSS
       - Network Inventory
       - Network Management
+      - OSS
       - REST
       - SOAP
-    image: 
-      https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/image.png
+      - Telecom
+    image: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/image.png
     humanURL: https://www.amdocs.com/products-services
     baseURL: https://api.amdocs.example.com
     properties:
@@ -93,22 +84,17 @@ common:
     type: Portal
   - url: https://knowledge.amdocs-dbs.com/
     type: Documentation
-  - url: 
-      https://developer.amdocs-dbs.com/reference/getting-started-with-your-api
+  - url: https://developer.amdocs-dbs.com/reference/getting-started-with-your-api
     type: GettingStarted
   - url: https://github.com/open-amdocs
     type: GitHubOrganization
-  - url: 
-      https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/openapi/amdocs-connectx-openapi.yml
+  - url: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/openapi/amdocs-connectx-openapi.yml
     type: OpenAPI
-  - url: 
-      https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/asyncapi/amdocs-events-asyncapi.yml
+  - url: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/asyncapi/amdocs-events-asyncapi.yml
     type: AsyncAPI
-  - url: 
-      https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/json-schema/amdocs-customer-schema.json
+  - url: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/json-schema/amdocs-customer-schema.json
     type: JSONSchema
-  - url: 
-      https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/json-ld/amdocs-context.jsonld
+  - url: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/json-ld/amdocs-context.jsonld
     type: JSONLDContext
 
 maintainers:
