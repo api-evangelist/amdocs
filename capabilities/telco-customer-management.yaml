@@ -1,0 +1,173 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: Amdocs Telco Customer Management
+  description: >-
+    Unified workflow for telecom operators managing customer accounts, subscriptions,
+    billing, and service catalog via Amdocs connectX BSS API. Supports BSS operators,
+    customer care agents, and billing teams.
+  tags:
+    - Amdocs
+    - Telecom
+    - BSS
+    - Customer Management
+    - Billing
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AMDOCS_CLIENT_ID: AMDOCS_CLIENT_ID
+      AMDOCS_CLIENT_SECRET: AMDOCS_CLIENT_SECRET
+
+capability:
+  consumes:
+    - import: amdocs-connectx
+      location: ./shared/connectx-api.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: amdocs-telco-crm-api
+      description: Unified REST API for telco customer management workflows.
+      resources:
+        - path: /v1/customers
+          name: customers
+          description: Telecom customer account management
+          operations:
+            - method: GET
+              name: list-customers
+              description: List all customer accounts
+              call: "amdocs-connectx.list-customers"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-customer
+              description: Onboard a new customer
+              call: "amdocs-connectx.create-customer"
+              with:
+                firstName: "rest.firstName"
+                lastName: "rest.lastName"
+                email: "rest.email"
+                customerType: "rest.customerType"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/subscriptions
+          name: subscriptions
+          description: Customer subscription management
+          operations:
+            - method: GET
+              name: list-subscriptions
+              description: List subscriptions for a customer
+              call: "amdocs-connectx.list-subscriptions"
+              with:
+                customerId: "rest.customerId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-subscription
+              description: Add a service subscription
+              call: "amdocs-connectx.create-subscription"
+              with:
+                customerId: "rest.customerId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/invoices
+          name: invoices
+          description: Customer billing invoices
+          operations:
+            - method: GET
+              name: list-invoices
+              description: List invoices for a customer
+              call: "amdocs-connectx.list-invoices"
+              with:
+                customerId: "rest.customerId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/products
+          name: products
+          description: Product and service catalog
+          operations:
+            - method: GET
+              name: list-products
+              description: Browse available products and plans
+              call: "amdocs-connectx.list-products"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: amdocs-telco-crm-mcp
+      transport: http
+      description: MCP server for AI-assisted telco customer management and BSS operations.
+      tools:
+        - name: list-customers
+          description: List telecom customer accounts
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "amdocs-connectx.list-customers"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-customer
+          description: Onboard a new telecom customer
+          hints:
+            readOnly: false
+          call: "amdocs-connectx.create-customer"
+          with:
+            firstName: "tools.firstName"
+            lastName: "tools.lastName"
+            email: "tools.email"
+            customerType: "tools.customerType"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-subscriptions
+          description: List service subscriptions for a customer
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "amdocs-connectx.list-subscriptions"
+          with:
+            customerId: "tools.customerId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-subscription
+          description: Add a service subscription to a customer account
+          hints:
+            readOnly: false
+          call: "amdocs-connectx.create-subscription"
+          with:
+            customerId: "tools.customerId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-invoices
+          description: Retrieve billing invoices for a customer
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "amdocs-connectx.list-invoices"
+          with:
+            customerId: "tools.customerId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-products
+          description: Browse the service catalog and available plans
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "amdocs-connectx.list-products"
+          outputParameters:
+            - type: object
+              mapping: "$."

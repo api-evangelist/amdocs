@@ -1,0 +1,58 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "amdocs": "https://amdocs.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Amdocs Customer": "amdocs:Amdocs Customer",
+    "customerId": {
+      "@id": "amdocs:customerId",
+      "@type": "xsd:string"
+    },
+    "customerType": {
+      "@id": "amdocs:customerType",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "amdocs:status",
+      "@type": "xsd:string"
+    },
+    "accountNumber": {
+      "@id": "amdocs:accountNumber",
+      "@type": "xsd:string"
+    },
+    "firstName": {
+      "@id": "amdocs:firstName",
+      "@type": "xsd:string"
+    },
+    "lastName": {
+      "@id": "amdocs:lastName",
+      "@type": "xsd:string"
+    },
+    "companyName": {
+      "@id": "amdocs:companyName",
+      "@type": "xsd:string"
+    },
+    "email": "schema:email",
+    "phone": {
+      "@id": "amdocs:phone",
+      "@type": "xsd:string"
+    },
+    "address": {
+      "@id": "amdocs:address",
+      "@type": "xsd:string"
+    },
+    "billingAddress": {
+      "@id": "amdocs:billingAddress",
+      "@type": "xsd:string"
+    },
+    "subscriptions": {
+      "@id": "amdocs:subscriptions",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "createdAt": "schema:dateCreated",
+    "updatedAt": "schema:dateModified"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/json-structure/connectx-invoice-structure.json",
+  "name": "Invoice",
+  "description": "Invoice schema from Amdocs API",
+  "type": "object",
+  "properties": {
+    "invoiceId": {
+      "type": "string"
+    },
+    "invoiceNumber": {
+      "type": "string"
+    },
+    "customerId": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Open",
+        "Paid",
+        "Overdue",
+        "Cancelled"
+      ]
+    },
+    "invoiceDate": {
+      "type": "date"
+    },
+    "dueDate": {
+      "type": "date"
+    },
+    "totalAmount": {
+      "type": "double"
+    },
+    "taxAmount": {
+      "type": "double"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "lineItems": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/InvoiceLineItem"
+      }
+    }
+  }
+}

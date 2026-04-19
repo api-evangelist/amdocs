@@ -1,0 +1,18 @@
+{
+  "subscriptionId": "TLK-132065",
+  "customerId": "TLK-198882",
+  "productId": "TLK-813704",
+  "productName": "John Smith",
+  "status": "Cancelled",
+  "startDate": "2026-04-19",
+  "endDate": "2026-04-19",
+  "monthlyCharge": 170.13,
+  "currency": "USD",
+  "addons": [
+    {
+      "addonId": "TLK-888273",
+      "addonName": "John Smith",
+      "charge": 67.88
+    }
+  ]
+}

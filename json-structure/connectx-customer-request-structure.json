@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/json-structure/connectx-customer-request-structure.json",
+  "name": "CustomerRequest",
+  "description": "CustomerRequest schema from Amdocs API",
+  "type": "object",
+  "properties": {
+    "customerType": {
+      "type": "string",
+      "enum": [
+        "Individual",
+        "Business",
+        "Government"
+      ]
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "companyName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "address": {
+      "$ref": "#/components/schemas/Address"
+    }
+  },
+  "required": [
+    "customerType",
+    "email"
+  ]
+}

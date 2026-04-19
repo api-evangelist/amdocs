@@ -1,0 +1,162 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: Amdocs
+  description: >-
+    Vocabulary mapping operational (OpenAPI) and capability (Naftiko) dimensions
+    for Amdocs connectX BSS and telecom management APIs.
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - namespace: amdocs-connectx
+      name: Amdocs connectX BSS API
+      version: "1.0.0"
+      baseUrl: https://api.amdocs-dbs.com
+      status: active
+    - namespace: amdocs-marketone
+      name: Amdocs MarketONE API
+      version: "1.0.0"
+      baseUrl: https://api.m1amdocs.com
+      status: active
+
+  resources:
+    - name: customers
+      apis: [amdocs-connectx]
+      actions: [list, get, create, update]
+    - name: subscriptions
+      apis: [amdocs-connectx]
+      actions: [list, get, create, update, cancel]
+    - name: invoices
+      apis: [amdocs-connectx]
+      actions: [list, get]
+    - name: products
+      apis: [amdocs-connectx]
+      actions: [list, get]
+    - name: orders
+      apis: [amdocs-marketone]
+      actions: [list, create, update, cancel]
+
+  actions:
+    - name: list
+      httpMethod: GET
+      pattern: read
+    - name: get
+      httpMethod: GET
+      pattern: read
+    - name: create
+      httpMethod: POST
+      pattern: write
+    - name: update
+      httpMethod: PATCH
+      pattern: write
+    - name: cancel
+      httpMethod: POST
+      pattern: write
+
+  schemas:
+    core:
+      - name: Customer
+        keyProperties: [customerId, firstName, lastName, email, customerType, status]
+      - name: Subscription
+        keyProperties: [subscriptionId, customerId, productId, status, startDate]
+      - name: Invoice
+        keyProperties: [invoiceId, customerId, amount, currency, status, dueDate]
+    catalog:
+      - name: Product
+        keyProperties: [productId, name, productType, price, status]
+
+  parameters:
+    pagination:
+      - name: page
+      - name: pageSize
+    identifiers:
+      - name: customerId
+      - name: subscriptionId
+    filters:
+      - name: status
+      - name: customerType
+      - name: productType
+    time:
+      - name: fromDate
+      - name: toDate
+
+  enums:
+    customer-status: [Active, Inactive, Suspended, Terminated]
+    customer-type: [Individual, Business, Government]
+    subscription-status: [Active, Suspended, Cancelled, Pending]
+    invoice-status: [Open, Paid, Overdue, Cancelled]
+    product-type: [Mobile, Broadband, TV, Bundle, Addon]
+
+  authentication:
+    schemes:
+      - type: oauth2
+        description: OAuth 2.0 client credentials for API access
+
+capability:
+  workflows:
+    - name: Telco Customer Management
+      file: capabilities/telco-customer-management.yaml
+      description: Unified BSS workflow for customer onboarding, billing, and service management
+      apisCombined: [amdocs-connectx]
+      toolCount: 6
+      personas:
+        - BSS Operator
+        - Customer Care Agent
+        - Billing Team
+
+  personas:
+    - id: bss-operator
+      name: BSS Operator
+      description: Manages telco BSS operations and system configuration
+      workflows: [Telco Customer Management]
+    - id: customer-care-agent
+      name: Customer Care Agent
+      description: Handles customer inquiries and account management
+      workflows: [Telco Customer Management]
+    - id: billing-team
+      name: Billing Team
+      description: Manages invoicing, payments, and revenue assurance
+      workflows: [Telco Customer Management]
+
+  domains:
+    - name: Customer Management
+      resources: [customers]
+    - name: Service Management
+      resources: [subscriptions, products]
+    - name: Billing
+      resources: [invoices]
+
+  namespaces:
+    consumed: [amdocs-connectx]
+    restExposed:
+      - name: amdocs-telco-crm-api
+        port: 8080
+    mcpExposed:
+      - name: amdocs-telco-crm-mcp
+        port: 9090
+
+  binds:
+    - name: AMDOCS_CLIENT_ID
+      workflows: [Telco Customer Management]
+    - name: AMDOCS_CLIENT_SECRET
+      workflows: [Telco Customer Management]
+
+crossReference:
+  - resource: customers
+    operations: [listCustomers, createCustomer, getCustomer, updateCustomer]
+    workflows: [Telco Customer Management]
+    personas: [BSS Operator, Customer Care Agent]
+  - resource: subscriptions
+    operations: [listCustomerSubscriptions, createSubscription]
+    workflows: [Telco Customer Management]
+    personas: [BSS Operator, Customer Care Agent]
+  - resource: invoices
+    operations: [listCustomerInvoices]
+    workflows: [Telco Customer Management]
+    personas: [Billing Team]
+  - resource: products
+    operations: [listProducts]
+    workflows: [Telco Customer Management]
+    personas: [BSS Operator]

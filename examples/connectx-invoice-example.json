@@ -1,0 +1,14 @@
+{
+  "invoiceId": "TLK-291850",
+  "invoiceNumber": "sample-value",
+  "customerId": "TLK-463675",
+  "status": "Cancelled",
+  "invoiceDate": "2026-04-19",
+  "dueDate": "2026-04-19",
+  "totalAmount": 168.74,
+  "taxAmount": 177.86,
+  "currency": "USD",
+  "lineItems": [
+    "sample-value"
+  ]
+}

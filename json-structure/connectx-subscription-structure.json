@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/json-structure/connectx-subscription-structure.json",
+  "name": "Subscription",
+  "description": "Subscription schema from Amdocs API",
+  "type": "object",
+  "properties": {
+    "subscriptionId": {
+      "type": "string"
+    },
+    "customerId": {
+      "type": "string"
+    },
+    "productId": {
+      "type": "string"
+    },
+    "productName": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Active",
+        "Suspended",
+        "Cancelled",
+        "Pending"
+      ]
+    },
+    "startDate": {
+      "type": "date"
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "monthlyCharge": {
+      "type": "double"
+    },
+    "currency": {
+      "type": "string",
+      "default": "USD"
+    },
+    "addons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "addonId": {
+            "type": "string"
+          },
+          "addonName": {
+            "type": "string"
+          },
+          "charge": {
+            "type": "double"
+          }
+        }
+      }
+    }
+  }
+}

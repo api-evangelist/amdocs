@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/json-schema/connectx-subscription-request-schema.json",
+  "title": "SubscriptionRequest",
+  "description": "SubscriptionRequest schema from Amdocs API",
+  "type": "object",
+  "properties": {
+    "productId": {
+      "type": "string"
+    },
+    "startDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "addons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "productId",
+    "startDate"
+  ]
+}

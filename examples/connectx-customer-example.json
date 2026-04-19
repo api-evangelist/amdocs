@@ -1,0 +1,15 @@
+{
+  "customerId": "TLK-411266",
+  "customerType": "Individual",
+  "status": "Suspended",
+  "accountNumber": "sample-value",
+  "firstName": "John Smith",
+  "lastName": "John Smith",
+  "companyName": "John Smith",
+  "email": "customer@telco.example.com",
+  "phone": "+15551234567",
+  "address": "123 Main St",
+  "billingAddress": "123 Main St",
+  "createdAt": "2026-04-19T12:00:00Z",
+  "updatedAt": "2026-04-19T12:00:00Z"
+}

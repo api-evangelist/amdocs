@@ -1,0 +1,9 @@
+{
+  "customerType": "Business",
+  "firstName": "John Smith",
+  "lastName": "John Smith",
+  "companyName": "John Smith",
+  "email": "customer@telco.example.com",
+  "phone": "+15551234567",
+  "address": "123 Main St"
+}

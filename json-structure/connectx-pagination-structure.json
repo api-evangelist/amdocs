@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/json-structure/connectx-pagination-structure.json",
+  "name": "Pagination",
+  "description": "Pagination schema from Amdocs API",
+  "type": "object",
+  "properties": {
+    "page": {
+      "type": "int32"
+    },
+    "pageSize": {
+      "type": "int32"
+    },
+    "totalPages": {
+      "type": "int32"
+    },
+    "totalItems": {
+      "type": "int32"
+    }
+  }
+}

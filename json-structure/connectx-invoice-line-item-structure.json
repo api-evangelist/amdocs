@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/json-structure/connectx-invoice-line-item-structure.json",
+  "name": "InvoiceLineItem",
+  "description": "InvoiceLineItem schema from Amdocs API",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "double"
+    },
+    "unitPrice": {
+      "type": "double"
+    },
+    "amount": {
+      "type": "double"
+    }
+  }
+}

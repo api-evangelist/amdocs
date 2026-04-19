@@ -1,0 +1,207 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: Amdocs connectX BSS API
+  description: Cloud-native SaaS BSS capabilities for telecom operators including billing, provisioning, and customer management.
+  tags:
+    - Amdocs
+    - Telecom
+    - BSS
+    - Billing
+    - Customer Management
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AMDOCS_CLIENT_ID: AMDOCS_CLIENT_ID
+      AMDOCS_CLIENT_SECRET: AMDOCS_CLIENT_SECRET
+
+capability:
+  consumes:
+    - type: http
+      namespace: amdocs-connectx
+      baseUri: https://api.amdocs-dbs.com
+      description: Amdocs connectX BSS API for telecom customer and billing management.
+      authentication:
+        type: bearer
+        token: "{{AMDOCS_ACCESS_TOKEN}}"
+      resources:
+        - name: customers
+          path: /v1/customers
+          description: Telecom customer account management
+          operations:
+            - name: list-customers
+              method: GET
+              description: List customer accounts
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-customer
+              method: POST
+              description: Create a new customer account
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  firstName: "{{tools.firstName}}"
+                  lastName: "{{tools.lastName}}"
+                  email: "{{tools.email}}"
+                  customerType: "{{tools.customerType}}"
+        - name: subscriptions
+          path: /v1/customers/{customerId}/subscriptions
+          description: Customer subscription lifecycle
+          operations:
+            - name: list-subscriptions
+              method: GET
+              description: List customer subscriptions
+              inputParameters:
+                - name: customerId
+                  in: path
+                  type: string
+                  required: true
+                  description: Customer ID
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-subscription
+              method: POST
+              description: Add a subscription to a customer
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: invoices
+          path: /v1/customers/{customerId}/invoices
+          description: Customer billing invoices
+          operations:
+            - name: list-invoices
+              method: GET
+              description: Retrieve customer invoices
+              inputParameters:
+                - name: customerId
+                  in: path
+                  type: string
+                  required: true
+                  description: Customer ID
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: products
+          path: /v1/products
+          description: Product and service catalog
+          operations:
+            - name: list-products
+              method: GET
+              description: List available products and services
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: amdocs-connectx-rest
+      resources:
+        - path: /v1/customers
+          name: customers
+          description: Manage telecom customer accounts
+          operations:
+            - method: GET
+              name: list-customers
+              description: List customer accounts
+              call: "amdocs-connectx.list-customers"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-customer
+              description: Create a new customer
+              call: "amdocs-connectx.create-customer"
+              with:
+                firstName: "rest.firstName"
+                lastName: "rest.lastName"
+                email: "rest.email"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/products
+          name: products
+          description: Product catalog
+          operations:
+            - method: GET
+              name: list-products
+              description: List available products
+              call: "amdocs-connectx.list-products"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: amdocs-connectx-mcp
+      transport: http
+      tools:
+        - name: list-customers
+          description: List telecom customer accounts
+          hints:
+            readOnly: true
+          call: "amdocs-connectx.list-customers"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-customer
+          description: Create a new telecom customer account
+          hints:
+            readOnly: false
+          call: "amdocs-connectx.create-customer"
+          with:
+            firstName: "tools.firstName"
+            lastName: "tools.lastName"
+            email: "tools.email"
+            customerType: "tools.customerType"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-subscriptions
+          description: List subscriptions for a customer
+          hints:
+            readOnly: true
+          call: "amdocs-connectx.list-subscriptions"
+          with:
+            customerId: "tools.customerId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-invoices
+          description: Retrieve invoices for a customer
+          hints:
+            readOnly: true
+          call: "amdocs-connectx.list-invoices"
+          with:
+            customerId: "tools.customerId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-products
+          description: List available products in the service catalog
+          hints:
+            readOnly: true
+          call: "amdocs-connectx.list-products"
+          outputParameters:
+            - type: object
+              mapping: "$."

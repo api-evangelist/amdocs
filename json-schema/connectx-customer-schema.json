@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/json-schema/connectx-customer-schema.json",
+  "title": "Customer",
+  "description": "Customer schema from Amdocs API",
+  "type": "object",
+  "properties": {
+    "customerId": {
+      "type": "string"
+    },
+    "customerType": {
+      "type": "string",
+      "enum": [
+        "Individual",
+        "Business",
+        "Government"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Active",
+        "Inactive",
+        "Suspended",
+        "Terminated"
+      ]
+    },
+    "accountNumber": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "companyName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "address": {
+      "$ref": "#/components/schemas/Address"
+    },
+    "billingAddress": {
+      "$ref": "#/components/schemas/Address"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

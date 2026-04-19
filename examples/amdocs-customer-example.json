@@ -1,0 +1,18 @@
+{
+  "customerId": "TLK-682657",
+  "customerType": "Government",
+  "status": "Active",
+  "accountNumber": "sample-value",
+  "firstName": "John Smith",
+  "lastName": "John Smith",
+  "companyName": "John Smith",
+  "email": "customer@telco.example.com",
+  "phone": "+15551234567",
+  "address": "123 Main St",
+  "billingAddress": "123 Main St",
+  "subscriptions": [
+    "sample-value"
+  ],
+  "createdAt": "2026-04-19T12:00:00Z",
+  "updatedAt": "2026-04-19T12:00:00Z"
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/json-structure/connectx-customer-list-structure.json",
+  "name": "CustomerList",
+  "description": "CustomerList schema from Amdocs API",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Customer"
+      }
+    },
+    "pagination": {
+      "$ref": "#/components/schemas/Pagination"
+    }
+  }
+}

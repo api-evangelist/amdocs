@@ -1,0 +1,199 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "amdocs": "https://amdocs.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "CustomerList": "amdocs:CustomerList",
+    "data": {
+      "@id": "amdocs:data",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "pagination": {
+      "@id": "amdocs:pagination",
+      "@type": "xsd:string"
+    },
+    "Subscription": "amdocs:Subscription",
+    "subscriptionId": {
+      "@id": "amdocs:subscriptionId",
+      "@type": "xsd:string"
+    },
+    "customerId": {
+      "@id": "amdocs:customerId",
+      "@type": "xsd:string"
+    },
+    "productId": {
+      "@id": "amdocs:productId",
+      "@type": "xsd:string"
+    },
+    "productName": {
+      "@id": "amdocs:productName",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "amdocs:status",
+      "@type": "xsd:string"
+    },
+    "startDate": {
+      "@id": "amdocs:startDate",
+      "@type": "xsd:date"
+    },
+    "endDate": {
+      "@id": "amdocs:endDate",
+      "@type": "xsd:date"
+    },
+    "monthlyCharge": {
+      "@id": "amdocs:monthlyCharge",
+      "@type": "xsd:decimal"
+    },
+    "currency": {
+      "@id": "amdocs:currency",
+      "@type": "xsd:string"
+    },
+    "addons": {
+      "@id": "amdocs:addons",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "SubscriptionList": "amdocs:SubscriptionList",
+    "Product": "amdocs:Product",
+    "productType": {
+      "@id": "amdocs:productType",
+      "@type": "xsd:string"
+    },
+    "description": "schema:description",
+    "monthlyPrice": {
+      "@id": "amdocs:monthlyPrice",
+      "@type": "xsd:decimal"
+    },
+    "features": {
+      "@id": "amdocs:features",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "InvoiceList": "amdocs:InvoiceList",
+    "Pagination": "amdocs:Pagination",
+    "page": {
+      "@id": "amdocs:page",
+      "@type": "xsd:integer"
+    },
+    "pageSize": {
+      "@id": "amdocs:pageSize",
+      "@type": "xsd:integer"
+    },
+    "totalPages": {
+      "@id": "amdocs:totalPages",
+      "@type": "xsd:integer"
+    },
+    "totalItems": {
+      "@id": "amdocs:totalItems",
+      "@type": "xsd:integer"
+    },
+    "InvoiceLineItem": "amdocs:InvoiceLineItem",
+    "quantity": {
+      "@id": "amdocs:quantity",
+      "@type": "xsd:decimal"
+    },
+    "unitPrice": {
+      "@id": "amdocs:unitPrice",
+      "@type": "xsd:decimal"
+    },
+    "amount": {
+      "@id": "amdocs:amount",
+      "@type": "xsd:decimal"
+    },
+    "CustomerRequest": "amdocs:CustomerRequest",
+    "customerType": {
+      "@id": "amdocs:customerType",
+      "@type": "xsd:string"
+    },
+    "firstName": {
+      "@id": "amdocs:firstName",
+      "@type": "xsd:string"
+    },
+    "lastName": {
+      "@id": "amdocs:lastName",
+      "@type": "xsd:string"
+    },
+    "companyName": {
+      "@id": "amdocs:companyName",
+      "@type": "xsd:string"
+    },
+    "email": "schema:email",
+    "phone": {
+      "@id": "amdocs:phone",
+      "@type": "xsd:string"
+    },
+    "address": {
+      "@id": "amdocs:address",
+      "@type": "xsd:string"
+    },
+    "SubscriptionRequest": "amdocs:SubscriptionRequest",
+    "Address": "amdocs:Address",
+    "street": {
+      "@id": "amdocs:street",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "amdocs:city",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "amdocs:state",
+      "@type": "xsd:string"
+    },
+    "postalCode": {
+      "@id": "amdocs:postalCode",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "amdocs:country",
+      "@type": "xsd:string"
+    },
+    "Customer": "amdocs:Customer",
+    "accountNumber": {
+      "@id": "amdocs:accountNumber",
+      "@type": "xsd:string"
+    },
+    "billingAddress": {
+      "@id": "amdocs:billingAddress",
+      "@type": "xsd:string"
+    },
+    "createdAt": "schema:dateCreated",
+    "updatedAt": "schema:dateModified",
+    "CustomerUpdate": "amdocs:CustomerUpdate",
+    "Invoice": "amdocs:Invoice",
+    "invoiceId": {
+      "@id": "amdocs:invoiceId",
+      "@type": "xsd:string"
+    },
+    "invoiceNumber": {
+      "@id": "amdocs:invoiceNumber",
+      "@type": "xsd:string"
+    },
+    "invoiceDate": {
+      "@id": "amdocs:invoiceDate",
+      "@type": "xsd:date"
+    },
+    "dueDate": {
+      "@id": "amdocs:dueDate",
+      "@type": "xsd:date"
+    },
+    "totalAmount": {
+      "@id": "amdocs:totalAmount",
+      "@type": "xsd:decimal"
+    },
+    "taxAmount": {
+      "@id": "amdocs:taxAmount",
+      "@type": "xsd:decimal"
+    },
+    "lineItems": {
+      "@id": "amdocs:lineItems",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "ProductList": "amdocs:ProductList"
+  }
+}

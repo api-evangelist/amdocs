@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/json-structure/amdocs-customer-structure.json",
+  "name": "Amdocs Customer",
+  "description": "JSON Schema for an Amdocs BSS telecom customer account.",
+  "type": "object",
+  "properties": {
+    "customerId": {
+      "type": "string",
+      "description": "Unique customer identifier"
+    },
+    "customerType": {
+      "type": "string",
+      "enum": [
+        "Individual",
+        "Business",
+        "Government"
+      ],
+      "description": "Classification of the customer"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Active",
+        "Inactive",
+        "Suspended",
+        "Terminated"
+      ]
+    },
+    "accountNumber": {
+      "type": "string",
+      "description": "Customer-facing account number"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "companyName": {
+      "type": "string",
+      "description": "Company name for Business/Government customers"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "address": {
+      "$ref": "#/$defs/Address"
+    },
+    "billingAddress": {
+      "$ref": "#/$defs/Address"
+    },
+    "subscriptions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Subscription"
+      }
+    },
+    "createdAt": {
+      "type": "datetime"
+    },
+    "updatedAt": {
+      "type": "datetime"
+    }
+  },
+  "required": [
+    "customerId",
+    "customerType",
+    "status"
+  ]
+}

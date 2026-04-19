@@ -1,0 +1,12 @@
+{
+  "productId": "TLK-206283",
+  "productName": "John Smith",
+  "productType": "Addon",
+  "description": "sample-value",
+  "monthlyPrice": 198.58,
+  "currency": "USD",
+  "features": [
+    "sample-value"
+  ],
+  "status": "Discontinued"
+}
