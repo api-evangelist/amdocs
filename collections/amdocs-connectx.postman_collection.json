@@ -1,0 +1,1093 @@
+{
+  "item": [
+    {
+      "id": "33b9959a-d32c-483b-ba32-2fc1470b623d",
+      "name": "Billing",
+      "description": {
+        "content": "Billing and invoice operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1ab46373-9dcf-4672-9c27-bff04c9e77b9",
+          "name": "List customer invoices",
+          "request": {
+            "name": "List customer invoices",
+            "description": {
+              "content": "Retrieve billing invoices for a customer, with optional date range filtering.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "customers",
+                ":customerId",
+                "invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fromDate",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "toDate",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "92159437-d72f-49ac-8517-3a17f0c3641b",
+              "name": "Customer invoices",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "customers",
+                    ":customerId",
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"invoiceId\": \"string\",\n      \"invoiceNumber\": \"string\",\n      \"customerId\": \"string\",\n      \"status\": \"Overdue\",\n      \"invoiceDate\": \"1992-04-03\",\n      \"dueDate\": \"1966-01-12\",\n      \"totalAmount\": 3019.6254651289455,\n      \"taxAmount\": 7161.835459441783,\n      \"currency\": \"string\",\n      \"lineItems\": [\n        {\n          \"description\": \"string\",\n          \"quantity\": 4318.516209375757,\n          \"unitPrice\": 3198.5796314067393,\n          \"amount\": 3817.9206367340526\n        },\n        {\n          \"description\": \"string\",\n          \"quantity\": 7265.101827444796,\n          \"unitPrice\": 1570.66312886468,\n          \"amount\": 333.12904086309493\n        }\n      ]\n    },\n    {\n      \"invoiceId\": \"string\",\n      \"invoiceNumber\": \"string\",\n      \"customerId\": \"string\",\n      \"status\": \"Cancelled\",\n      \"invoiceDate\": \"1966-10-01\",\n      \"dueDate\": \"2020-01-30\",\n      \"totalAmount\": 6884.169513316944,\n      \"taxAmount\": 8876.191802645699,\n      \"currency\": \"string\",\n      \"lineItems\": [\n        {\n          \"description\": \"string\",\n          \"quantity\": 8233.706386681228,\n          \"unitPrice\": 582.3435431036072,\n          \"amount\": 9358.49717617453\n        },\n        {\n          \"description\": \"string\",\n          \"quantity\": 1205.1202507737569,\n          \"unitPrice\": 7174.941816141501,\n          \"amount\": 9562.443061338226\n        }\n      ]\n    }\n  ],\n  \"pagination\": {\n    \"page\": 9648,\n    \"pageSize\": 5698,\n    \"totalPages\": 9725,\n    \"totalItems\": 4023\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "fb757cfc-a04e-4ced-92d4-0a9b3ff6e038",
+      "name": "Customers",
+      "description": {
+        "content": "Customer account management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "26850fbe-39f7-4cd2-89f2-8175e35113a5",
+          "name": "List customers",
+          "request": {
+            "name": "List customers",
+            "description": {
+              "content": "Retrieve a paginated list of telecom customer accounts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "customerType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "25"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0652afff-739e-4b71-9f27-7d5c2cedabab",
+              "name": "List of customers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"customerId\": \"string\",\n      \"customerType\": \"Individual\",\n      \"status\": \"Inactive\",\n      \"accountNumber\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"companyName\": \"string\",\n      \"email\": \"s9A13qzQnUF@IIydSZQpSE.emn\",\n      \"phone\": \"string\",\n      \"address\": {\n        \"street\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postalCode\": \"string\",\n        \"country\": \"string\"\n      },\n      \"billingAddress\": {\n        \"street\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postalCode\": \"string\",\n        \"country\": \"string\"\n      },\n      \"createdAt\": \"1982-03-16T18:42:12.459Z\",\n      \"updatedAt\": \"1991-05-26T21:26:05.993Z\"\n    },\n    {\n      \"customerId\": \"string\",\n      \"customerType\": \"Individual\",\n      \"status\": \"Suspended\",\n      \"accountNumber\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"companyName\": \"string\",\n      \"email\": \"FiXRmlL@dMemWmCslHJLdSDJl.gq\",\n      \"phone\": \"string\",\n      \"address\": {\n        \"street\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postalCode\": \"string\",\n        \"country\": \"string\"\n      },\n      \"billingAddress\": {\n        \"street\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"postalCode\": \"string\",\n        \"country\": \"string\"\n      },\n      \"createdAt\": \"1998-03-31T18:05:48.957Z\",\n      \"updatedAt\": \"2016-01-25T04:53:33.568Z\"\n    }\n  ],\n  \"pagination\": {\n    \"page\": 5607,\n    \"pageSize\": 1746,\n    \"totalPages\": 8741,\n    \"totalItems\": 6975\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c832e86b-232a-45aa-b217-5d2c9be02e1a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4971cd25-7de9-4a4e-91cf-858775b84973",
+          "name": "Create a new customer",
+          "request": {
+            "name": "Create a new customer",
+            "description": {
+              "content": "Onboard a new telecom customer account into the BSS system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerType\": \"<string>\",\n  \"email\": \"<email>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"companyName\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"country\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "55b9dfa9-21be-47bc-ad75-b55baef75e4c",
+              "name": "Customer created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerType\": \"<string>\",\n  \"email\": \"<email>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"companyName\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"street\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"postalCode\": \"string\",\n    \"country\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customerId\": \"string\",\n  \"customerType\": \"Business\",\n  \"status\": \"Inactive\",\n  \"accountNumber\": \"string\",\n  \"firstName\": \"string\",\n  \"lastName\": \"string\",\n  \"companyName\": \"string\",\n  \"email\": \"cXrkIcIVjUc@YHNrjTCPLUkBOtXpUwINiMREptVgGRWj.igdj\",\n  \"phone\": \"string\",\n  \"address\": {\n    \"street\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"postalCode\": \"string\",\n    \"country\": \"string\"\n  },\n  \"billingAddress\": {\n    \"street\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"postalCode\": \"string\",\n    \"country\": \"string\"\n  },\n  \"createdAt\": \"1994-08-03T17:15:17.092Z\",\n  \"updatedAt\": \"2006-11-20T14:02:52.603Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0915e13e-a054-482a-88e3-6c6bad5da573",
+          "name": "Get customer by ID",
+          "request": {
+            "name": "Get customer by ID",
+            "description": {
+              "content": "Retrieve full customer account details including contact info and account status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "customers",
+                ":customerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d8c37df7-ba26-4d3b-a8e7-28b5edf84351",
+              "name": "Customer details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "customers",
+                    ":customerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customerId\": \"string\",\n  \"customerType\": \"Business\",\n  \"status\": \"Inactive\",\n  \"accountNumber\": \"string\",\n  \"firstName\": \"string\",\n  \"lastName\": \"string\",\n  \"companyName\": \"string\",\n  \"email\": \"cXrkIcIVjUc@YHNrjTCPLUkBOtXpUwINiMREptVgGRWj.igdj\",\n  \"phone\": \"string\",\n  \"address\": {\n    \"street\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"postalCode\": \"string\",\n    \"country\": \"string\"\n  },\n  \"billingAddress\": {\n    \"street\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"postalCode\": \"string\",\n    \"country\": \"string\"\n  },\n  \"createdAt\": \"1994-08-03T17:15:17.092Z\",\n  \"updatedAt\": \"2006-11-20T14:02:52.603Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd3553bb-e655-4733-a4d0-9d98d9895bbb",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "customers",
+                    ":customerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7219bd9b-1870-4214-9918-105868e83e81",
+          "name": "Update customer",
+          "request": {
+            "name": "Update customer",
+            "description": {
+              "content": "Update customer account information such as contact details or account status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "customers",
+                ":customerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\",\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"country\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "afe8b6ca-5ea2-483e-8cad-fd58b66c0ff6",
+              "name": "Customer updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "customers",
+                    ":customerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\",\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"street\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"postalCode\": \"string\",\n    \"country\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customerId\": \"string\",\n  \"customerType\": \"Business\",\n  \"status\": \"Inactive\",\n  \"accountNumber\": \"string\",\n  \"firstName\": \"string\",\n  \"lastName\": \"string\",\n  \"companyName\": \"string\",\n  \"email\": \"cXrkIcIVjUc@YHNrjTCPLUkBOtXpUwINiMREptVgGRWj.igdj\",\n  \"phone\": \"string\",\n  \"address\": {\n    \"street\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"postalCode\": \"string\",\n    \"country\": \"string\"\n  },\n  \"billingAddress\": {\n    \"street\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"postalCode\": \"string\",\n    \"country\": \"string\"\n  },\n  \"createdAt\": \"1994-08-03T17:15:17.092Z\",\n  \"updatedAt\": \"2006-11-20T14:02:52.603Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "97a1f428-07c3-40ff-8d98-3a974e8d0098",
+      "name": "Products",
+      "description": {
+        "content": "Product catalog management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ce5f4574-863a-45af-a7c7-3bdbdc6d0348",
+          "name": "List products",
+          "request": {
+            "name": "List products",
+            "description": {
+              "content": "Retrieve the product and service catalog available for subscription.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "productType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5ca08c48-6b4d-4093-a055-5dc455db6d63",
+              "name": "Product catalog",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "productType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"productId\": \"string\",\n      \"productName\": \"string\",\n      \"productType\": \"Addon\",\n      \"description\": \"string\",\n      \"monthlyPrice\": 4948.645939866588,\n      \"currency\": \"string\",\n      \"features\": [\n        \"string\",\n        \"string\"\n      ],\n      \"status\": \"Discontinued\"\n    },\n    {\n      \"productId\": \"string\",\n      \"productName\": \"string\",\n      \"productType\": \"Addon\",\n      \"description\": \"string\",\n      \"monthlyPrice\": 416.7745493166397,\n      \"currency\": \"string\",\n      \"features\": [\n        \"string\",\n        \"string\"\n      ],\n      \"status\": \"Discontinued\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "fee97d80-2989-4e63-ba40-77a9d048e83a",
+      "name": "Subscriptions",
+      "description": {
+        "content": "Subscription lifecycle management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6a015146-e1d0-43c9-9f4e-7b062b1af05b",
+          "name": "List customer subscriptions",
+          "request": {
+            "name": "List customer subscriptions",
+            "description": {
+              "content": "Retrieve all service subscriptions associated with a customer account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "customers",
+                ":customerId",
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "63c68577-22aa-4ad8-b66e-aa5c68b0f54e",
+              "name": "Customer subscriptions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "customers",
+                    ":customerId",
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"subscriptionId\": \"string\",\n      \"customerId\": \"string\",\n      \"productId\": \"string\",\n      \"productName\": \"string\",\n      \"status\": \"Cancelled\",\n      \"startDate\": \"2022-12-01\",\n      \"endDate\": \"2009-02-12\",\n      \"monthlyCharge\": 6353.464750814014,\n      \"currency\": \"USD\",\n      \"addons\": [\n        {\n          \"addonId\": \"string\",\n          \"addonName\": \"string\",\n          \"charge\": 2116.055420653422\n        },\n        {\n          \"addonId\": \"string\",\n          \"addonName\": \"string\",\n          \"charge\": 5912.51169632316\n        }\n      ]\n    },\n    {\n      \"subscriptionId\": \"string\",\n      \"customerId\": \"string\",\n      \"productId\": \"string\",\n      \"productName\": \"string\",\n      \"status\": \"Pending\",\n      \"startDate\": \"1998-03-26\",\n      \"endDate\": \"1988-11-02\",\n      \"monthlyCharge\": 4845.400439489693,\n      \"currency\": \"USD\",\n      \"addons\": [\n        {\n          \"addonId\": \"string\",\n          \"addonName\": \"string\",\n          \"charge\": 3775.84553902101\n        },\n        {\n          \"addonId\": \"string\",\n          \"addonName\": \"string\",\n          \"charge\": 2220.513423798817\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88b37e68-deaf-4e48-90d7-7181e84f42b5",
+          "name": "Create subscription",
+          "request": {
+            "name": "Create subscription",
+            "description": {
+              "content": "Add a new service subscription to a customer account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "customers",
+                ":customerId",
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"addons\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "05388f82-25e1-4262-9041-2f7c10c6795e",
+              "name": "Subscription created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "customers",
+                    ":customerId",
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"productId\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"addons\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"subscriptionId\": \"string\",\n  \"customerId\": \"string\",\n  \"productId\": \"string\",\n  \"productName\": \"string\",\n  \"status\": \"Pending\",\n  \"startDate\": \"1950-11-02\",\n  \"endDate\": \"2005-08-16\",\n  \"monthlyCharge\": 1032.7398241970798,\n  \"currency\": \"USD\",\n  \"addons\": [\n    {\n      \"addonId\": \"string\",\n      \"addonName\": \"string\",\n      \"charge\": 5711.908107077448\n    },\n    {\n      \"addonId\": \"string\",\n      \"addonName\": \"string\",\n      \"charge\": 7314.072634192254\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.amdocs-dbs.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "read:customers write:customers read:billing write:subscriptions"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://auth.amdocs-dbs.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9d4f1438-1136-4311-8385-0d158ad4819d",
+    "name": "Amdocs connectX BSS API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Amdocs connectX BSS API provides cloud-native SaaS BSS capabilities for telecom operators covering billing, provisioning, customer management, and subscription lifecycle. REST APIs enable integration with CRM, network management, and revenue assurance systems for digital telco operations.\n\nContact Support:\n Name: Amdocs Developer Portal",
+      "type": "text/plain"
+    }
+  }
+}
