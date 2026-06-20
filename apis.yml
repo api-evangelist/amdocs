@@ -6,7 +6,7 @@ description: >-
   provisioning, and subscription lifecycle. Amdocs also provides MarketONE for digital BSS, NetCracker for OSS network
   management, and an expanding suite of AI-powered telco solutions built on TM Forum Open APIs.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Telecom
   - BSS
