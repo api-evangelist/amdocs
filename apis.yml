@@ -87,6 +87,8 @@ apis:
       - type: Documentation
         url: https://www.amdocs.com/products-services
 common:
+  - type: OAuthScopes
+    url: scopes/amdocs-scopes.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/amdocs
   - type: Website

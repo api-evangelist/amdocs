@@ -1,0 +1,34 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/amdocs-connectx-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/amdocs-connectx-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://auth.amdocs-dbs.com/oauth/token
+scopes:
+- scope: read:billing
+  description: Read billing data
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/amdocs-connectx-openapi.yml
+- scope: read:customers
+  description: Read customer data
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/amdocs-connectx-openapi.yml
+- scope: write:customers
+  description: Manage customers
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/amdocs-connectx-openapi.yml
+- scope: write:subscriptions
+  description: Manage subscriptions
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/amdocs-connectx-openapi.yml
