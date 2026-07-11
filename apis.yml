@@ -87,6 +87,10 @@ apis:
       - type: Documentation
         url: https://www.amdocs.com/products-services
 common:
+  - type: DomainSecurity
+    url: security/amdocs-domain-security.yml
+  - type: Authentication
+    url: authentication/amdocs-authentication.yml
   - type: OAuthScopes
     url: scopes/amdocs-scopes.yml
   - type: LinkedIn
