@@ -87,6 +87,8 @@ apis:
       - type: Documentation
         url: https://www.amdocs.com/products-services
 common:
+  - type: AgenticAccess
+    url: agentic-access/amdocs-agentic-access.yml
   - type: DomainSecurity
     url: security/amdocs-domain-security.yml
   - type: Authentication
