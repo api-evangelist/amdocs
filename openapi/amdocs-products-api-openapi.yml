@@ -1,0 +1,99 @@
+openapi: 3.1.0
+info:
+  title: Amdocs connectX BSS Billing Products API
+  description: The Amdocs connectX BSS API provides cloud-native SaaS BSS capabilities for telecom operators covering billing, provisioning, customer management, and subscription lifecycle. REST APIs enable integration with CRM, network management, and revenue assurance systems for digital telco operations.
+  version: 1.0.0
+  contact:
+    name: Amdocs Developer Portal
+    url: https://devportal.amdocs-dbs.com/
+servers:
+- url: https://api.amdocs-dbs.com
+  description: Amdocs connectX Production API
+security:
+- oauth2: []
+tags:
+- name: Products
+  description: Product catalog management
+paths:
+  /v1/products:
+    get:
+      operationId: listProducts
+      summary: List products
+      description: Retrieve the product and service catalog available for subscription.
+      tags:
+      - Products
+      parameters:
+      - name: productType
+        in: query
+        schema:
+          type: string
+          enum:
+          - Mobile
+          - Broadband
+          - TV
+          - Bundle
+          - Addon
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - Active
+          - Discontinued
+      responses:
+        '200':
+          description: Product catalog
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductList'
+components:
+  schemas:
+    ProductList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+    Product:
+      type: object
+      properties:
+        productId:
+          type: string
+        productName:
+          type: string
+        productType:
+          type: string
+          enum:
+          - Mobile
+          - Broadband
+          - TV
+          - Bundle
+          - Addon
+        description:
+          type: string
+        monthlyPrice:
+          type: number
+        currency:
+          type: string
+        features:
+          type: array
+          items:
+            type: string
+        status:
+          type: string
+          enum:
+          - Active
+          - Discontinued
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.amdocs-dbs.com/oauth/token
+          scopes:
+            read:customers: Read customer data
+            write:customers: Manage customers
+            read:billing: Read billing data
+            write:subscriptions: Manage subscriptions

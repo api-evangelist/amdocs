@@ -1,0 +1,146 @@
+openapi: 3.1.0
+info:
+  title: Amdocs connectX BSS Billing Subscriptions API
+  description: The Amdocs connectX BSS API provides cloud-native SaaS BSS capabilities for telecom operators covering billing, provisioning, customer management, and subscription lifecycle. REST APIs enable integration with CRM, network management, and revenue assurance systems for digital telco operations.
+  version: 1.0.0
+  contact:
+    name: Amdocs Developer Portal
+    url: https://devportal.amdocs-dbs.com/
+servers:
+- url: https://api.amdocs-dbs.com
+  description: Amdocs connectX Production API
+security:
+- oauth2: []
+tags:
+- name: Subscriptions
+  description: Subscription lifecycle management
+paths:
+  /v1/customers/{customerId}/subscriptions:
+    get:
+      operationId: listCustomerSubscriptions
+      summary: List customer subscriptions
+      description: Retrieve all service subscriptions associated with a customer account.
+      tags:
+      - Subscriptions
+      parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - Active
+          - Suspended
+          - Cancelled
+          - Pending
+      responses:
+        '200':
+          description: Customer subscriptions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionList'
+    post:
+      operationId: createSubscription
+      summary: Create subscription
+      description: Add a new service subscription to a customer account.
+      tags:
+      - Subscriptions
+      parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionRequest'
+      responses:
+        '201':
+          description: Subscription created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
+components:
+  schemas:
+    Subscription:
+      type: object
+      properties:
+        subscriptionId:
+          type: string
+        customerId:
+          type: string
+        productId:
+          type: string
+        productName:
+          type: string
+        status:
+          type: string
+          enum:
+          - Active
+          - Suspended
+          - Cancelled
+          - Pending
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        monthlyCharge:
+          type: number
+        currency:
+          type: string
+          default: USD
+        addons:
+          type: array
+          items:
+            type: object
+            properties:
+              addonId:
+                type: string
+              addonName:
+                type: string
+              charge:
+                type: number
+    SubscriptionList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Subscription'
+    SubscriptionRequest:
+      type: object
+      required:
+      - productId
+      - startDate
+      properties:
+        productId:
+          type: string
+        startDate:
+          type: string
+          format: date
+        addons:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.amdocs-dbs.com/oauth/token
+          scopes:
+            read:customers: Read customer data
+            write:customers: Manage customers
+            read:billing: Read billing data
+            write:subscriptions: Manage subscriptions

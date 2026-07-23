@@ -1,0 +1,132 @@
+openapi: 3.1.0
+info:
+  title: Amdocs connectX BSS Billing API
+  description: The Amdocs connectX BSS API provides cloud-native SaaS BSS capabilities for telecom operators covering billing, provisioning, customer management, and subscription lifecycle. REST APIs enable integration with CRM, network management, and revenue assurance systems for digital telco operations.
+  version: 1.0.0
+  contact:
+    name: Amdocs Developer Portal
+    url: https://devportal.amdocs-dbs.com/
+servers:
+- url: https://api.amdocs-dbs.com
+  description: Amdocs connectX Production API
+security:
+- oauth2: []
+tags:
+- name: Billing
+  description: Billing and invoice operations
+paths:
+  /v1/customers/{customerId}/invoices:
+    get:
+      operationId: listCustomerInvoices
+      summary: List customer invoices
+      description: Retrieve billing invoices for a customer, with optional date range filtering.
+      tags:
+      - Billing
+      parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: fromDate
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: toDate
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - Open
+          - Paid
+          - Overdue
+          - Cancelled
+      responses:
+        '200':
+          description: Customer invoices
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvoiceList'
+components:
+  schemas:
+    InvoiceList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Invoice'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Invoice:
+      type: object
+      properties:
+        invoiceId:
+          type: string
+        invoiceNumber:
+          type: string
+        customerId:
+          type: string
+        status:
+          type: string
+          enum:
+          - Open
+          - Paid
+          - Overdue
+          - Cancelled
+        invoiceDate:
+          type: string
+          format: date
+        dueDate:
+          type: string
+          format: date
+        totalAmount:
+          type: number
+        taxAmount:
+          type: number
+        currency:
+          type: string
+        lineItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/InvoiceLineItem'
+    Pagination:
+      type: object
+      properties:
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        totalPages:
+          type: integer
+        totalItems:
+          type: integer
+    InvoiceLineItem:
+      type: object
+      properties:
+        description:
+          type: string
+        quantity:
+          type: number
+        unitPrice:
+          type: number
+        amount:
+          type: number
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.amdocs-dbs.com/oauth/token
+          scopes:
+            read:customers: Read customer data
+            write:customers: Manage customers
+            read:billing: Read billing data
+            write:subscriptions: Manage subscriptions

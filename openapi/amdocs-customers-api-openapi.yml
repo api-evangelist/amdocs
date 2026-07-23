@@ -1,0 +1,275 @@
+openapi: 3.1.0
+info:
+  title: Amdocs connectX BSS Billing Customers API
+  description: The Amdocs connectX BSS API provides cloud-native SaaS BSS capabilities for telecom operators covering billing, provisioning, customer management, and subscription lifecycle. REST APIs enable integration with CRM, network management, and revenue assurance systems for digital telco operations.
+  version: 1.0.0
+  contact:
+    name: Amdocs Developer Portal
+    url: https://devportal.amdocs-dbs.com/
+servers:
+- url: https://api.amdocs-dbs.com
+  description: Amdocs connectX Production API
+security:
+- oauth2: []
+tags:
+- name: Customers
+  description: Customer account management
+paths:
+  /v1/customers:
+    get:
+      operationId: listCustomers
+      summary: List customers
+      description: Retrieve a paginated list of telecom customer accounts.
+      tags:
+      - Customers
+      parameters:
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - Active
+          - Inactive
+          - Suspended
+          - Terminated
+      - name: customerType
+        in: query
+        schema:
+          type: string
+          enum:
+          - Individual
+          - Business
+          - Government
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          default: 25
+      responses:
+        '200':
+          description: List of customers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createCustomer
+      summary: Create a new customer
+      description: Onboard a new telecom customer account into the BSS system.
+      tags:
+      - Customers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerRequest'
+      responses:
+        '201':
+          description: Customer created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+  /v1/customers/{customerId}:
+    get:
+      operationId: getCustomer
+      summary: Get customer by ID
+      description: Retrieve full customer account details including contact info and account status.
+      tags:
+      - Customers
+      parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Customer details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateCustomer
+      summary: Update customer
+      description: Update customer account information such as contact details or account status.
+      tags:
+      - Customers
+      parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerUpdate'
+      responses:
+        '200':
+          description: Customer updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+components:
+  schemas:
+    Customer:
+      type: object
+      properties:
+        customerId:
+          type: string
+        customerType:
+          type: string
+          enum:
+          - Individual
+          - Business
+          - Government
+        status:
+          type: string
+          enum:
+          - Active
+          - Inactive
+          - Suspended
+          - Terminated
+        accountNumber:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        companyName:
+          type: string
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        billingAddress:
+          $ref: '#/components/schemas/Address'
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    Pagination:
+      type: object
+      properties:
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        totalPages:
+          type: integer
+        totalItems:
+          type: integer
+    Address:
+      type: object
+      properties:
+        street:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        postalCode:
+          type: string
+        country:
+          type: string
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+    CustomerRequest:
+      type: object
+      required:
+      - customerType
+      - email
+      properties:
+        customerType:
+          type: string
+          enum:
+          - Individual
+          - Business
+          - Government
+        firstName:
+          type: string
+        lastName:
+          type: string
+        companyName:
+          type: string
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+    CustomerUpdate:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - Active
+          - Inactive
+          - Suspended
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+    CustomerList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Customer'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+  responses:
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.amdocs-dbs.com/oauth/token
+          scopes:
+            read:customers: Read customer data
+            write:customers: Manage customers
+            read:billing: Read billing data
+            write:subscriptions: Manage subscriptions
