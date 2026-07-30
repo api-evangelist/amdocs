@@ -6,7 +6,20 @@ description: >-
   provisioning, and subscription lifecycle. Amdocs also provides MarketONE for digital BSS, NetCracker for OSS network
   management, and an expanding suite of AI-powered telco solutions built on TM Forum Open APIs.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amdocs.png
 tags:
   - Telecom
   - BSS
@@ -21,71 +34,121 @@ created: '2026-03-18'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: amdocs:amdocs-connectx-api
-    name: Amdocs connectX BSS API
-    description: >-
-      The Amdocs connectX BSS API provides cloud-native SaaS BSS capabilities for telecom operators, covering billing,
-      provisioning, customer management, and subscription lifecycle. Built on TM Forum Open APIs, it enables integration
-      with CRM, network management, and revenue assurance systems for digital telco and MVNO operations. Powered by AWS
-      with AI-native capabilities and eSIM support.
-    humanURL: https://devportal.amdocs-dbs.com/
-    baseURL: https://api.amdocs-dbs.com
-    tags:
-      - Billing
-      - BSS
-      - Provisioning
-      - Telecom
-      - MVNO
-      - SaaS
-    properties:
-      - type: Documentation
-        url: https://devportal.amdocs-dbs.com/
-      - type: GettingStarted
-        url: https://developer.amdocs-dbs.com/reference/getting-started-with-your-api
-      - type: APIReference
-        url: https://developer.amdocs-dbs.com/reference/getting-started-with-your-api
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/openapi/amdocs-connectx-openapi.yml
-      - type: AsyncAPI
-        url: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/asyncapi/amdocs-events-asyncapi.yml
-  - aid: amdocs:amdocs-marketone-api
-    name: Amdocs MarketONE API
-    description: >-
-      The Amdocs MarketONE API provides digital BSS capabilities for telecoms, supporting catalog management, order
-      management, customer management, and digital service delivery. REST APIs enable integration with the Amdocs
-      MarketONE platform for telco digital transformation and omnichannel service delivery including mobile apps and web
-      self-services.
-    humanURL: https://developer.m1amdocs.com/
-    baseURL: https://api.m1amdocs.com
-    tags:
-      - BSS
-      - Digital Services
-      - Order Management
-      - Telecom
-    properties:
-      - type: Documentation
-        url: https://developer.m1amdocs.com/
-      - type: APIReference
-        url: https://developer.m1amdocs.com/api/
-      - type: Authentication
-        url: >-
-          https://developer.m1amdocs.com/documentation/Content/E-API%20Guides/ULMProcessGuide/ProcessCatalogue/AuthenticateUserProcess.htm
-  - aid: amdocs:amdocs-netcracker-oss-api
-    name: Amdocs NetCracker OSS API
-    description: >-
-      The Amdocs NetCracker OSS API provides network inventory management, network provisioning, and service assurance
-      capabilities for telecom operators. REST and SOAP APIs support integration with network management systems,
-      trouble ticketing, and service fulfillment platforms across multi-vendor network environments.
-    humanURL: https://www.amdocs.com/products-services
-    baseURL: https://api.amdocs.com
-    tags:
-      - Network Inventory
-      - Network Management
-      - OSS
-      - Telecom
-    properties:
-      - type: Documentation
-        url: https://www.amdocs.com/products-services
+- aid: amdocs:amdocs-marketone-api
+  name: Amdocs MarketONE API
+  description: >-
+    The Amdocs MarketONE API provides digital BSS capabilities for telecoms, supporting catalog management,
+    order management, customer management, and digital service delivery. REST APIs enable integration
+    with the Amdocs MarketONE platform for telco digital transformation and omnichannel service delivery
+    including mobile apps and web self-services.
+  humanURL: https://developer.m1amdocs.com/
+  baseURL: https://api.m1amdocs.com
+  tags:
+  - BSS
+  - Digital Services
+  - Order Management
+  - Telecom
+  properties:
+  - type: Documentation
+    url: https://developer.m1amdocs.com/
+  - type: APIReference
+    url: https://developer.m1amdocs.com/api/
+  - type: Authentication
+    url: >-
+      https://developer.m1amdocs.com/documentation/Content/E-API%20Guides/ULMProcessGuide/ProcessCatalogue/AuthenticateUserProcess.htm
+- aid: amdocs:amdocs-netcracker-oss-api
+  name: Amdocs NetCracker OSS API
+  description: >-
+    The Amdocs NetCracker OSS API provides network inventory management, network provisioning, and service
+    assurance capabilities for telecom operators. REST and SOAP APIs support integration with network
+    management systems, trouble ticketing, and service fulfillment platforms across multi-vendor network
+    environments.
+  humanURL: https://www.amdocs.com/products-services
+  baseURL: https://api.amdocs.com
+  tags:
+  - Network Inventory
+  - Network Management
+  - OSS
+  - Telecom
+  properties:
+  - type: Documentation
+    url: https://www.amdocs.com/products-services
+- aid: amdocs:amdocs-billing-api
+  name: Amdocs Billing API
+  description: Billing and invoice operations
+  humanURL: https://devportal.amdocs-dbs.com/
+  baseURL: https://api.amdocs-dbs.com
+  tags:
+  - Billing
+  properties:
+  - type: OpenAPI
+    url: openapi/amdocs-billing-api-openapi.yml
+  - type: Documentation
+    url: https://devportal.amdocs-dbs.com/
+  - type: GettingStarted
+    url: https://developer.amdocs-dbs.com/reference/getting-started-with-your-api
+  - type: APIReference
+    url: https://developer.amdocs-dbs.com/reference/getting-started-with-your-api
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/asyncapi/amdocs-events-asyncapi.yml
+- aid: amdocs:amdocs-customers-api
+  name: Amdocs Customers API
+  description: Customer account management
+  humanURL: https://devportal.amdocs-dbs.com/
+  baseURL: https://api.amdocs-dbs.com
+  tags:
+  - Customers
+  properties:
+  - type: OpenAPI
+    url: openapi/amdocs-customers-api-openapi.yml
+  - type: Documentation
+    url: https://devportal.amdocs-dbs.com/
+  - type: GettingStarted
+    url: https://developer.amdocs-dbs.com/reference/getting-started-with-your-api
+  - type: APIReference
+    url: https://developer.amdocs-dbs.com/reference/getting-started-with-your-api
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/asyncapi/amdocs-events-asyncapi.yml
+- aid: amdocs:amdocs-products-api
+  name: Amdocs Products API
+  description: Product catalog management
+  humanURL: https://devportal.amdocs-dbs.com/
+  baseURL: https://api.amdocs-dbs.com
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/amdocs-products-api-openapi.yml
+  - type: Documentation
+    url: https://devportal.amdocs-dbs.com/
+  - type: GettingStarted
+    url: https://developer.amdocs-dbs.com/reference/getting-started-with-your-api
+  - type: APIReference
+    url: https://developer.amdocs-dbs.com/reference/getting-started-with-your-api
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/asyncapi/amdocs-events-asyncapi.yml
+- aid: amdocs:amdocs-subscriptions-api
+  name: Amdocs Subscriptions API
+  description: Subscription lifecycle management
+  humanURL: https://devportal.amdocs-dbs.com/
+  baseURL: https://api.amdocs-dbs.com
+  tags:
+  - Subscriptions
+  properties:
+  - type: OpenAPI
+    url: openapi/amdocs-subscriptions-api-openapi.yml
+  - type: Documentation
+    url: https://devportal.amdocs-dbs.com/
+  - type: GettingStarted
+    url: https://developer.amdocs-dbs.com/reference/getting-started-with-your-api
+  - type: APIReference
+    url: https://developer.amdocs-dbs.com/reference/getting-started-with-your-api
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/asyncapi/amdocs-events-asyncapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/amdocs-agentic-access.yml
