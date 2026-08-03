@@ -1,0 +1,20 @@
+{
+  "provider": "amdocs",
+  "sources": [
+    "amdocs-billing-api-openapi.yml",
+    "amdocs-customers-api-openapi.yml",
+    "amdocs-products-api-openapi.yml",
+    "amdocs-subscriptions-api-openapi.yml"
+  ],
+  "outputs": [
+    "amdocs-billing-api-openapi.yml",
+    "amdocs-customers-api-openapi.yml",
+    "amdocs-products-api-openapi.yml",
+    "amdocs-subscriptions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
