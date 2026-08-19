@@ -1,0 +1,281 @@
+{
+  "item": [
+    {
+      "id": "940e0667-ad8d-4708-a20c-468c9e40027f",
+      "name": "Subscriptions",
+      "description": {
+        "content": "Subscription lifecycle management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3f5228ac-2b58-4edf-8024-b73f17735efe",
+          "name": "List customer subscriptions",
+          "request": {
+            "name": "List customer subscriptions",
+            "description": {
+              "content": "Retrieve all service subscriptions associated with a customer account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "customers",
+                ":customerId",
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "18cb2e91-54a5-419d-b730-1ce52350fb6f",
+              "name": "Customer subscriptions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "customers",
+                    ":customerId",
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"subscriptionId\": \"string\",\n      \"customerId\": \"string\",\n      \"productId\": \"string\",\n      \"productName\": \"string\",\n      \"status\": \"Pending\",\n      \"startDate\": \"2010-12-29\",\n      \"endDate\": \"1966-03-13\",\n      \"monthlyCharge\": 5190.144007737833,\n      \"currency\": \"USD\",\n      \"addons\": [\n        {\n          \"addonId\": \"string\",\n          \"addonName\": \"string\",\n          \"charge\": 6099.090263615609\n        },\n        {\n          \"addonId\": \"string\",\n          \"addonName\": \"string\",\n          \"charge\": 4549.429929206435\n        }\n      ]\n    },\n    {\n      \"subscriptionId\": \"string\",\n      \"customerId\": \"string\",\n      \"productId\": \"string\",\n      \"productName\": \"string\",\n      \"status\": \"Pending\",\n      \"startDate\": \"2025-06-16\",\n      \"endDate\": \"1989-09-19\",\n      \"monthlyCharge\": 2521.298781290199,\n      \"currency\": \"USD\",\n      \"addons\": [\n        {\n          \"addonId\": \"string\",\n          \"addonName\": \"string\",\n          \"charge\": 8232.875084710233\n        },\n        {\n          \"addonId\": \"string\",\n          \"addonName\": \"string\",\n          \"charge\": 9503.08424631873\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6249e8bc-824b-4251-ac0d-8ba7d521b1ec",
+          "name": "Create subscription",
+          "request": {
+            "name": "Create subscription",
+            "description": {
+              "content": "Add a new service subscription to a customer account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "customers",
+                ":customerId",
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"addons\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "510cbd33-4a6c-46e9-ae79-0e481bca1e01",
+              "name": "Subscription created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "customers",
+                    ":customerId",
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"productId\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"addons\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"subscriptionId\": \"string\",\n  \"customerId\": \"string\",\n  \"productId\": \"string\",\n  \"productName\": \"string\",\n  \"status\": \"Active\",\n  \"startDate\": \"2018-02-01\",\n  \"endDate\": \"2012-05-05\",\n  \"monthlyCharge\": 9872.266104509363,\n  \"currency\": \"USD\",\n  \"addons\": [\n    {\n      \"addonId\": \"string\",\n      \"addonName\": \"string\",\n      \"charge\": 9987.062401600277\n    },\n    {\n      \"addonId\": \"string\",\n      \"addonName\": \"string\",\n      \"charge\": 6816.216873520726\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.amdocs-dbs.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "read:customers write:customers read:billing write:subscriptions"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://auth.amdocs-dbs.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b27ab914-3d2f-4b82-9f72-709215662f83",
+    "name": "Amdocs connectX BSS Billing Subscriptions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Amdocs connectX BSS API provides cloud-native SaaS BSS capabilities for telecom operators covering billing, provisioning, customer management, and subscription lifecycle. REST APIs enable integration with CRM, network management, and revenue assurance systems for digital telco operations.\n\nContact Support:\n Name: Amdocs Developer Portal",
+      "type": "text/plain"
+    }
+  }
+}

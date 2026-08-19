@@ -1,0 +1,149 @@
+{
+  "item": [
+    {
+      "id": "272a4173-97f3-46fb-b08b-0f9a634362a8",
+      "name": "Products",
+      "description": {
+        "content": "Product catalog management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ab3ff353-4b9b-499e-b729-5551ecbb6d9b",
+          "name": "List products",
+          "request": {
+            "name": "List products",
+            "description": {
+              "content": "Retrieve the product and service catalog available for subscription.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "productType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5d6de015-a2db-4df1-9a49-97ec00e0a0aa",
+              "name": "Product catalog",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "productType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"productId\": \"string\",\n      \"productName\": \"string\",\n      \"productType\": \"Broadband\",\n      \"description\": \"string\",\n      \"monthlyPrice\": 9492.639184663407,\n      \"currency\": \"string\",\n      \"features\": [\n        \"string\",\n        \"string\"\n      ],\n      \"status\": \"Discontinued\"\n    },\n    {\n      \"productId\": \"string\",\n      \"productName\": \"string\",\n      \"productType\": \"Bundle\",\n      \"description\": \"string\",\n      \"monthlyPrice\": 6498.342262791604,\n      \"currency\": \"string\",\n      \"features\": [\n        \"string\",\n        \"string\"\n      ],\n      \"status\": \"Active\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.amdocs-dbs.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "read:customers write:customers read:billing write:subscriptions"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://auth.amdocs-dbs.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b46058b2-dcaa-4f70-b3a4-6c0667d83947",
+    "name": "Amdocs connectX BSS Billing Products API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Amdocs connectX BSS API provides cloud-native SaaS BSS capabilities for telecom operators covering billing, provisioning, customer management, and subscription lifecycle. REST APIs enable integration with CRM, network management, and revenue assurance systems for digital telco operations.\n\nContact Support:\n Name: Amdocs Developer Portal",
+      "type": "text/plain"
+    }
+  }
+}
