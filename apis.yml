@@ -28,6 +28,15 @@ tags:
   - Customer Management
   - MVNO
   - 5G
+  - Software-as-a-Service
+tags_raw:
+  - Telecom
+  - BSS
+  - OSS
+  - Billing
+  - Customer Management
+  - MVNO
+  - 5G
   - SaaS
 url: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/apis.yml
 created: '2026-03-18'
@@ -117,6 +126,8 @@ apis:
   humanURL: https://devportal.amdocs-dbs.com/
   baseURL: https://api.amdocs-dbs.com
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
@@ -136,6 +147,8 @@ apis:
   humanURL: https://devportal.amdocs-dbs.com/
   baseURL: https://api.amdocs-dbs.com
   tags:
+  - Subscription
+  tags_raw:
   - Subscriptions
   properties:
   - type: OpenAPI
