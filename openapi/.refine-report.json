@@ -1,10 +1,7 @@
 {
   "provider": "amdocs",
   "sources": [
-    "amdocs-billing-api-openapi.yml",
-    "amdocs-customers-api-openapi.yml",
-    "amdocs-products-api-openapi.yml",
-    "amdocs-subscriptions-api-openapi.yml"
+    "_original/amdocs-connectx-openapi.yml"
   ],
   "outputs": [
     "amdocs-billing-api-openapi.yml",
@@ -15,6 +12,15 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "amdocs-connectx-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "amdocs-billing-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amdocs-customers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amdocs-products-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amdocs-subscriptions-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

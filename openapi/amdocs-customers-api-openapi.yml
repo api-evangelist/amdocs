@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Amdocs connectX BSS Billing Customers API
+  title: Amdocs connectX BSS Customers API
   description: The Amdocs connectX BSS API provides cloud-native SaaS BSS capabilities for telecom operators covering billing, provisioning, customer management, and subscription lifecycle. REST APIs enable integration with CRM, network management, and revenue assurance systems for digital telco operations.
   version: 1.0.0
   contact:
@@ -127,6 +127,38 @@ paths:
                 $ref: '#/components/schemas/Customer'
 components:
   schemas:
+    CustomerUpdate:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - Active
+          - Inactive
+          - Suspended
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+    CustomerList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Customer'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
     Customer:
       type: object
       properties:
@@ -168,37 +200,6 @@ components:
         updatedAt:
           type: string
           format: date-time
-    Pagination:
-      type: object
-      properties:
-        page:
-          type: integer
-        pageSize:
-          type: integer
-        totalPages:
-          type: integer
-        totalItems:
-          type: integer
-    Address:
-      type: object
-      properties:
-        street:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        postalCode:
-          type: string
-        country:
-          type: string
-    Error:
-      type: object
-      properties:
-        code:
-          type: string
-        message:
-          type: string
     CustomerRequest:
       type: object
       required:
@@ -224,31 +225,30 @@ components:
           type: string
         address:
           $ref: '#/components/schemas/Address'
-    CustomerUpdate:
+    Address:
       type: object
       properties:
-        status:
+        street:
           type: string
-          enum:
-          - Active
-          - Inactive
-          - Suspended
-        email:
+        city:
           type: string
-          format: email
-        phone:
+        state:
           type: string
-        address:
-          $ref: '#/components/schemas/Address'
-    CustomerList:
+        postalCode:
+          type: string
+        country:
+          type: string
+    Pagination:
       type: object
       properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Customer'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        totalPages:
+          type: integer
+        totalItems:
+          type: integer
   responses:
     Unauthorized:
       description: Unauthorized
