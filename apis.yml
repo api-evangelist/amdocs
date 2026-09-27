@@ -35,7 +35,7 @@ x-docs-platform: readme
 x-docs-platform-confidence: high
 x-docs-platform-checked: 2026-09-18
 tags:
-  - Telecom
+  - Telecommunications
   - BSS
   - OSS
   - Billing
@@ -43,6 +43,7 @@ tags:
   - MVNO
   - 5G
   - Software-as-a-Service
+  - Real-Time
 tags_raw:
   - Telecom
   - BSS
@@ -52,6 +53,7 @@ tags_raw:
   - MVNO
   - 5G
   - SaaS
+  - Real-Time
 url: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/apis.yml
 created: '2026-03-18'
 modified: '2026-05-19'
@@ -67,6 +69,11 @@ apis:
   humanURL: https://developer.m1amdocs.com/
   baseURL: https://api.m1amdocs.com
   tags:
+  - BSS
+  - Digital Services
+  - Order Management
+  - Telecommunications
+  tags_raw:
   - BSS
   - Digital Services
   - Order Management
@@ -89,6 +96,11 @@ apis:
   humanURL: https://www.amdocs.com/products-services
   baseURL: https://api.amdocs.com
   tags:
+  - Network Inventory
+  - Network Management
+  - OSS
+  - Telecommunications
+  tags_raw:
   - Network Inventory
   - Network Management
   - OSS

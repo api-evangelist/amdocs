@@ -126,7 +126,27 @@ paths:
               schema:
                 $ref: '#/components/schemas/Customer'
 components:
+  responses:
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
     CustomerUpdate:
       type: object
       properties:
@@ -152,13 +172,42 @@ components:
             $ref: '#/components/schemas/Customer'
         pagination:
           $ref: '#/components/schemas/Pagination'
-    Error:
+    CustomerRequest:
+      type: object
+      required:
+      - customerType
+      - email
+      properties:
+        customerType:
+          type: string
+          enum:
+          - Individual
+          - Business
+          - Government
+        firstName:
+          type: string
+        lastName:
+          type: string
+        companyName:
+          type: string
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+    Pagination:
       type: object
       properties:
-        code:
-          type: string
-        message:
-          type: string
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        totalPages:
+          type: integer
+        totalItems:
+          type: integer
     Customer:
       type: object
       properties:
@@ -200,31 +249,6 @@ components:
         updatedAt:
           type: string
           format: date-time
-    CustomerRequest:
-      type: object
-      required:
-      - customerType
-      - email
-      properties:
-        customerType:
-          type: string
-          enum:
-          - Individual
-          - Business
-          - Government
-        firstName:
-          type: string
-        lastName:
-          type: string
-        companyName:
-          type: string
-        email:
-          type: string
-          format: email
-        phone:
-          type: string
-        address:
-          $ref: '#/components/schemas/Address'
     Address:
       type: object
       properties:
@@ -238,30 +262,6 @@ components:
           type: string
         country:
           type: string
-    Pagination:
-      type: object
-      properties:
-        page:
-          type: integer
-        pageSize:
-          type: integer
-        totalPages:
-          type: integer
-        totalItems:
-          type: integer
-  responses:
-    Unauthorized:
-      description: Unauthorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     oauth2:
       type: oauth2
