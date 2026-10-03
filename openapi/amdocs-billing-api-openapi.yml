@@ -56,17 +56,6 @@ paths:
                 $ref: '#/components/schemas/InvoiceList'
 components:
   schemas:
-    InvoiceLineItem:
-      type: object
-      properties:
-        description:
-          type: string
-        quantity:
-          type: number
-        unitPrice:
-          type: number
-        amount:
-          type: number
     Invoice:
       type: object
       properties:
@@ -119,6 +108,17 @@ components:
             $ref: '#/components/schemas/Invoice'
         pagination:
           $ref: '#/components/schemas/Pagination'
+    InvoiceLineItem:
+      type: object
+      properties:
+        description:
+          type: string
+        quantity:
+          type: number
+        unitPrice:
+          type: number
+        amount:
+          type: number
   securitySchemes:
     oauth2:
       type: oauth2

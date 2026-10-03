@@ -140,74 +140,19 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
   schemas:
-    Error:
+    Address:
       type: object
       properties:
-        code:
+        street:
           type: string
-        message:
+        city:
           type: string
-    CustomerUpdate:
-      type: object
-      properties:
-        status:
+        state:
           type: string
-          enum:
-          - Active
-          - Inactive
-          - Suspended
-        email:
+        postalCode:
           type: string
-          format: email
-        phone:
+        country:
           type: string
-        address:
-          $ref: '#/components/schemas/Address'
-    CustomerList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Customer'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    CustomerRequest:
-      type: object
-      required:
-      - customerType
-      - email
-      properties:
-        customerType:
-          type: string
-          enum:
-          - Individual
-          - Business
-          - Government
-        firstName:
-          type: string
-        lastName:
-          type: string
-        companyName:
-          type: string
-        email:
-          type: string
-          format: email
-        phone:
-          type: string
-        address:
-          $ref: '#/components/schemas/Address'
-    Pagination:
-      type: object
-      properties:
-        page:
-          type: integer
-        pageSize:
-          type: integer
-        totalPages:
-          type: integer
-        totalItems:
-          type: integer
     Customer:
       type: object
       properties:
@@ -249,19 +194,74 @@ components:
         updatedAt:
           type: string
           format: date-time
-    Address:
+    CustomerUpdate:
       type: object
       properties:
-        street:
+        status:
           type: string
-        city:
+          enum:
+          - Active
+          - Inactive
+          - Suspended
+        email:
           type: string
-        state:
+          format: email
+        phone:
           type: string
-        postalCode:
+        address:
+          $ref: '#/components/schemas/Address'
+    Pagination:
+      type: object
+      properties:
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        totalPages:
+          type: integer
+        totalItems:
+          type: integer
+    Error:
+      type: object
+      properties:
+        code:
           type: string
-        country:
+        message:
           type: string
+    CustomerList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Customer'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    CustomerRequest:
+      type: object
+      required:
+      - customerType
+      - email
+      properties:
+        customerType:
+          type: string
+          enum:
+          - Individual
+          - Business
+          - Government
+        firstName:
+          type: string
+        lastName:
+          type: string
+        companyName:
+          type: string
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
   securitySchemes:
     oauth2:
       type: oauth2
