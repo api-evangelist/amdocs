@@ -44,6 +44,7 @@ tags:
   - 5G
   - Software-as-a-Service
   - Real-Time
+  - Subscription Billing
 tags_raw:
   - Telecom
   - BSS
@@ -54,6 +55,7 @@ tags_raw:
   - 5G
   - SaaS
   - Real-Time
+  - Subscription Billing
 url: https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/apis.yml
 created: '2026-03-18'
 modified: '2026-05-19'
