@@ -99,15 +99,6 @@ components:
           type: integer
         totalItems:
           type: integer
-    InvoiceList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Invoice'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
     InvoiceLineItem:
       type: object
       properties:
@@ -119,6 +110,15 @@ components:
           type: number
         amount:
           type: number
+    InvoiceList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Invoice'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
   securitySchemes:
     oauth2:
       type: oauth2

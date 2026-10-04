@@ -86,6 +86,13 @@ components:
           type: array
           items:
             type: string
+    SubscriptionList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Subscription'
     Subscription:
       type: object
       properties:
@@ -126,13 +133,6 @@ components:
                 type: string
               charge:
                 type: number
-    SubscriptionList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Subscription'
   securitySchemes:
     oauth2:
       type: oauth2
