@@ -191,6 +191,12 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/asyncapi/amdocs-events-asyncapi.yml
 common:
+  - type: Plans
+    url: plans/amdocs-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/amdocs-rate-limits.yml
+  - type: FinOps
+    url: finops/amdocs-finops.yml
   - type: CapabilityMap
     url: capabilities/amdocs-capability-edges.yml
     name: Amdocs Business Capability Map
