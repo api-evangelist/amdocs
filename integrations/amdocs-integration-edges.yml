@@ -1,5 +1,5 @@
 generated: '2026-10-12'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/amdocs/integrations
 - https://n8n.io/integrations/amdocs/
@@ -9,8 +9,31 @@ checked:
 - https://composio.dev/toolkits/amdocs
 - https://monid.ai/tools/amdocs
 - https://n8n.io/integrations/amdocs/
+- https://raw.githubusercontent.com/camaraproject/camara-landscape/main/landscape.yml
 - https://zapier.com/apps/amdocs/integrations
 summary: null
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: CAMARA
+  partner: camara-project
+  type: contract
+  channel: network-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://raw.githubusercontent.com/camaraproject/camara-landscape/main/landscape.yml
+  contract_reference:
+    register: CAMARA landscape (Linux Foundation CAMARA project)
+    spec_file: null
+    role: participating-organization
+    tier: participating-organization
+    landscape_roles:
+    - API Exposure Platform Solution Providers
+    - Network Capability Solution Providers
+    - Transformation Function Solution Providers
+    registered_name: Amdocs
+    matched_domain: amdocs.com
+    api_families: null
+    api_families_basis: null
+    detected_by: sweep-telco-network-apis.py
+    detected: '2026-10-12'
 templates: []
