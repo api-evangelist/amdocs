@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/amdocs/integrations
+- https://n8n.io/integrations/amdocs/
+- https://composio.dev/toolkits/amdocs
+- https://monid.ai/tools/amdocs
+checked:
+- https://composio.dev/toolkits/amdocs
+- https://monid.ai/tools/amdocs
+- https://n8n.io/integrations/amdocs/
+- https://zapier.com/apps/amdocs/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
