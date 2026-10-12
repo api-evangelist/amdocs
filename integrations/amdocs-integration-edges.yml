@@ -6,6 +6,8 @@ source:
 - https://composio.dev/toolkits/amdocs
 - https://monid.ai/tools/amdocs
 checked:
+- https://aws.amazon.com/marketplace/
+- https://azuremarketplace.microsoft.com/
 - https://composio.dev/toolkits/amdocs
 - https://monid.ai/tools/amdocs
 - https://n8n.io/integrations/amdocs/
@@ -36,4 +38,57 @@ edges:
     api_families_basis: null
     detected_by: sweep-telco-network-apis.py
     detected: '2026-10-12'
+- partner_name: AWS Marketplace
+  partner: amazon-web-services
+  partner_match: aggregator
+  type: marketplace
+  marketplace: aws-marketplace
+  channel: distribution
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://aws.amazon.com/marketplace/seller-profile?id=f746757a-7244-4ae1-b648-13644f91b942
+  listing_count: 15
+  apps:
+  - Amdocs connectX
+  - Amdocs Kenan Billing System
+  - Amdocs Cognitive Core (Powered by amAIz)
+  - Amdocs Subscription Marketplace
+  - BMC Control M by Amdocs Digital Engineering
+  seller_name: Amdocs
+  detected_by: sweep-cloud-marketplaces.py
+  detected: '2026-10-13'
+- partner_name: Microsoft Azure Marketplace
+  partner: microsoft-azure
+  partner_match: aggregator
+  type: marketplace
+  marketplace: azure-marketplace
+  channel: distribution
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Amdocs%20
+  listing_count: 7
+  apps:
+  - Amdocs Customer Experience Suite (CES 25)
+  - Amdocs Cognitive Core (Powered by amAIz)
+  - Amdocs Network AIOps for Azure
+  - Astadia Mainframe Modernization and Migration
+  - Amdocs brAIn Platform
+  seller_name: 'Amdocs '
+  detected_by: sweep-cloud-marketplaces.py
+  detected: '2026-10-13'
+- partner_name: Microsoft Azure Marketplace
+  partner: microsoft-azure
+  partner_match: aggregator
+  type: marketplace
+  marketplace: azure-marketplace
+  channel: distribution
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Amdocs%20%28UK%29%20Limited
+  listing_count: 1
+  apps:
+  - Amdocs eSIM UK
+  seller_name: Amdocs (UK) Limited
+  detected_by: sweep-cloud-marketplaces.py
+  detected: '2026-10-13'
 templates: []
