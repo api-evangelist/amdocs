@@ -38,7 +38,7 @@
   channel: distribution
   evidence: https://aws.amazon.com/marketplace/seller-profile?id=f746757a-7244-4ae1-b648-13644f91b942
   source: edge
-  relationship: platform-app
+  relationship: distribution-channel
   status: not-a-workflow
   arazzo: null
 - slug: amdocs-microsoft-azure-marketplace
@@ -50,6 +50,6 @@
   channel: distribution
   evidence: https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Amdocs%20
   source: edge
-  relationship: platform-app
+  relationship: distribution-channel
   status: not-a-workflow
   arazzo: null
