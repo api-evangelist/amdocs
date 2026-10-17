@@ -71,6 +71,13 @@ paths:
                 $ref: '#/components/schemas/Subscription'
 components:
   schemas:
+    SubscriptionList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Subscription'
     SubscriptionRequest:
       type: object
       required:
@@ -86,13 +93,6 @@ components:
           type: array
           items:
             type: string
-    SubscriptionList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Subscription'
     Subscription:
       type: object
       properties:

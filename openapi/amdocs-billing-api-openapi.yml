@@ -56,6 +56,17 @@ paths:
                 $ref: '#/components/schemas/InvoiceList'
 components:
   schemas:
+    Pagination:
+      type: object
+      properties:
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        totalPages:
+          type: integer
+        totalItems:
+          type: integer
     Invoice:
       type: object
       properties:
@@ -88,17 +99,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/InvoiceLineItem'
-    Pagination:
+    InvoiceList:
       type: object
       properties:
-        page:
-          type: integer
-        pageSize:
-          type: integer
-        totalPages:
-          type: integer
-        totalItems:
-          type: integer
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Invoice'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     InvoiceLineItem:
       type: object
       properties:
@@ -110,15 +119,6 @@ components:
           type: number
         amount:
           type: number
-    InvoiceList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Invoice'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
   securitySchemes:
     oauth2:
       type: oauth2
