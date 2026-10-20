@@ -52,8 +52,8 @@ edges:
   - Amdocs connectX
   - Amdocs Kenan Billing System
   - Amdocs Cognitive Core (Powered by amAIz)
-  - Amdocs Subscription Marketplace
   - BMC Control M by Amdocs Digital Engineering
+  - Amdocs Subscription Marketplace
   seller_name: Amdocs
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
