@@ -1,4 +1,4 @@
-# Amdocs (amdocs)
+# Amdocs
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,114 +66,230 @@
 
 Amdocs is a global technology company providing software and services to communications and media companies worldwide. Its connectX platform is a cloud-native SaaS BSS solution for telecom operators covering customer management, billing, provisioning, and subscription lifecycle. Amdocs also provides MarketONE for digital BSS, NetCracker for OSS network management, and an expanding suite of AI-powered telco solutions built on TM Forum Open APIs.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/apis.yml)
+**Areas:** Telecommunications · BSS · OSS · Billing · Customer Management · MVNO · 5G · Software-as-a-Service · Real-Time · Subscription Billing
 
-## Scope
+## Amdocs on APIs.io
 
-- **Type:** Index
+Everything profiled for Amdocs is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amdocs/](https://apis.io/providers/amdocs/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (6)
 
-- Telecom
-- BSS
-- OSS
-- Billing
-- Customer Management
-- MVNO
-- 5G
-- SaaS
+- [Amdocs MarketONE API](https://apis.io/apis/amdocs/amdocs-marketone-api/) — The Amdocs MarketONE API provides digital BSS capabilities for telecoms, supporting catalog management, order management, customer management, and digital…
+- [Amdocs NetCracker OSS API](https://apis.io/apis/amdocs/amdocs-netcracker-oss-api/) — The Amdocs NetCracker OSS API provides network inventory management, network provisioning, and service assurance capabilities for telecom operators. REST…
+- [Amdocs Billing API](https://apis.io/apis/amdocs/amdocs-billing-api/) — Billing and invoice operations
+- [Amdocs Customers API](https://apis.io/apis/amdocs/amdocs-customers-api/) — Customer account management
+- [Amdocs Products API](https://apis.io/apis/amdocs/amdocs-products-api/) — Product catalog management
+- [Amdocs Subscriptions API](https://apis.io/apis/amdocs/amdocs-subscriptions-api/) — Subscription lifecycle management
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-18
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### AsyncAPI (1)
 
-### Amdocs connectX BSS API
+Event-driven and webhook contracts.
 
-The Amdocs connectX BSS API provides cloud-native SaaS BSS capabilities for telecom operators, covering billing, provisioning, customer management, and subscription lifecycle. Built on TM Forum Open APIs, it enables integration with CRM, network management, and revenue assurance systems for digital telco and MVNO operations. Powered by AWS with AI-native capabilities and eSIM support.
+- [Amdocs connectX BSS Event API](https://apis.io/asyncapis/amdocs/amdocs-events-asyncapi/)
 
-- **Human URL:** [https://devportal.amdocs-dbs.com/](https://devportal.amdocs-dbs.com/)
-- **Base URL:** `https://api.amdocs-dbs.com`
+#### Event channels (7)
 
-#### Tags
+Individual events and webhooks the provider emits.
 
-- Billing
-- BSS
-- Provisioning
-- Telecom
-- MVNO
-- SaaS
+- [billing/invoice/created](https://apis.io/channels/amdocs/billing-invoice-created/)
+- [billing/payment/received](https://apis.io/channels/amdocs/billing-payment-received/)
+- [customer/created](https://apis.io/channels/amdocs/customer-created/)
+- [customer/updated](https://apis.io/channels/amdocs/customer-updated/)
+- [subscription/activated](https://apis.io/channels/amdocs/subscription-activated/)
+- [subscription/cancelled](https://apis.io/channels/amdocs/subscription-cancelled/)
+- [subscription/suspended](https://apis.io/channels/amdocs/subscription-suspended/)
 
-#### Properties
+#### Agentic access (1)
 
-- [Documentation](https://devportal.amdocs-dbs.com/)
-- [Getting Started](https://developer.amdocs-dbs.com/reference/getting-started-with-your-api)
-- [API Reference](https://developer.amdocs-dbs.com/reference/getting-started-with-your-api)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/openapi/amdocs-connectx-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [AsyncAPI](https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/asyncapi/amdocs-events-asyncapi.yml) — [AsyncAPI Specification](https://www.asyncapi.com/docs/reference/specification/latest)
-- [Postman Collection](collections/amdocs-connectx.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/amdocs-connectx.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-### Amdocs MarketONE API
+- [Amdocs Agentic Access](https://apis.io/agentic-access/amdocs/amdocs-agentic-access/)
 
-The Amdocs MarketONE API provides digital BSS capabilities for telecoms, supporting catalog management, order management, customer management, and digital service delivery. REST APIs enable integration with the Amdocs MarketONE platform for telco digital transformation and omnichannel service delivery including mobile apps and web self-services.
+#### JSON Schema (15)
 
-- **Human URL:** [https://developer.m1amdocs.com/](https://developer.m1amdocs.com/)
-- **Base URL:** `https://api.m1amdocs.com`
+The data models the API reads and writes.
 
-#### Tags
+- [Amdocs Customer](https://apis.io/schemas/amdocs/amdocs-customer/)
+- [Address](https://apis.io/schemas/amdocs/connectx-address/)
+- [Customer](https://apis.io/schemas/amdocs/connectx-customer/)
+- [CustomerList](https://apis.io/schemas/amdocs/connectx-customer-list/)
+- [CustomerRequest](https://apis.io/schemas/amdocs/connectx-customer-request/)
+- [CustomerUpdate](https://apis.io/schemas/amdocs/connectx-customer-update/)
+- [Invoice](https://apis.io/schemas/amdocs/connectx-invoice/)
+- [InvoiceLineItem](https://apis.io/schemas/amdocs/connectx-invoice-line-item/)
+- [InvoiceList](https://apis.io/schemas/amdocs/connectx-invoice-list/)
+- [Pagination](https://apis.io/schemas/amdocs/connectx-pagination/)
+- [Product](https://apis.io/schemas/amdocs/connectx-product/)
+- [ProductList](https://apis.io/schemas/amdocs/connectx-product-list/)
+- [Subscription](https://apis.io/schemas/amdocs/connectx-subscription/)
+- [SubscriptionList](https://apis.io/schemas/amdocs/connectx-subscription-list/)
+- [SubscriptionRequest](https://apis.io/schemas/amdocs/connectx-subscription-request/)
 
-- BSS
-- Digital Services
-- Order Management
-- Telecom
+#### JSON Structure (15)
 
-#### Properties
+Data models expressed in JSON Structure.
 
-- [Documentation](https://developer.m1amdocs.com/)
-- [API Reference](https://developer.m1amdocs.com/api/)
-- [Authentication](https://developer.m1amdocs.com/documentation/Content/E-API%20Guides/ULMProcessGuide/ProcessCatalogue/AuthenticateUserProcess.htm)
-- [Postman Collection](collections/amdocs-connectx.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/amdocs-connectx.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Amdocs Customer Structure](https://apis.io/json-structure/amdocs/amdocs-customer-structure/)
+- [Connectx Address Structure](https://apis.io/json-structure/amdocs/connectx-address-structure/)
+- [Connectx Customer List Structure](https://apis.io/json-structure/amdocs/connectx-customer-list-structure/)
+- [Connectx Customer Request Structure](https://apis.io/json-structure/amdocs/connectx-customer-request-structure/)
+- [Connectx Customer Structure](https://apis.io/json-structure/amdocs/connectx-customer-structure/)
+- [Connectx Customer Update Structure](https://apis.io/json-structure/amdocs/connectx-customer-update-structure/)
+- [Connectx Invoice Line Item Structure](https://apis.io/json-structure/amdocs/connectx-invoice-line-item-structure/)
+- [Connectx Invoice List Structure](https://apis.io/json-structure/amdocs/connectx-invoice-list-structure/)
+- [Connectx Invoice Structure](https://apis.io/json-structure/amdocs/connectx-invoice-structure/)
+- [Connectx Pagination Structure](https://apis.io/json-structure/amdocs/connectx-pagination-structure/)
+- [Connectx Product List Structure](https://apis.io/json-structure/amdocs/connectx-product-list-structure/)
+- [Connectx Product Structure](https://apis.io/json-structure/amdocs/connectx-product-structure/)
+- [Connectx Subscription List Structure](https://apis.io/json-structure/amdocs/connectx-subscription-list-structure/)
+- [Connectx Subscription Request Structure](https://apis.io/json-structure/amdocs/connectx-subscription-request-structure/)
+- [Connectx Subscription Structure](https://apis.io/json-structure/amdocs/connectx-subscription-structure/)
 
-### Amdocs NetCracker OSS API
+#### JSON-LD (3)
 
-The Amdocs NetCracker OSS API provides network inventory management, network provisioning, and service assurance capabilities for telecom operators. REST and SOAP APIs support integration with network management systems, trouble ticketing, and service fulfillment platforms across multi-vendor network environments.
+Linked-data contexts for the provider's vocabulary.
 
-- **Human URL:** [https://www.amdocs.com/products-services](https://www.amdocs.com/products-services)
-- **Base URL:** `https://api.amdocs.com`
+- [Amdocs Amdocs Context](https://apis.io/jsonld/amdocs/amdocs-amdocs-context/)
+- [Amdocs Connectx Context](https://apis.io/jsonld/amdocs/amdocs-connectx-context/)
+- [Amdocs Context](https://apis.io/jsonld/amdocs/amdocs-context/)
 
-#### Tags
+#### Vocabulary (1)
 
-- Network Inventory
-- Network Management
-- OSS
-- Telecom
+The provider's domain terms, defined.
 
-#### Properties
+- [Amdocs Vocabulary](https://apis.io/vocabularies/amdocs/amdocs-vocabulary/)
 
-- [Documentation](https://www.amdocs.com/products-services)
-- [Postman Collection](collections/amdocs-connectx.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/amdocs-connectx.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Examples (15)
 
-## Common Properties
+Example requests and responses.
 
-- [LinkedIn](https://www.linkedin.com/company/amdocs)
+- [Amdocs Customer Example](https://apis.io/examples/amdocs/amdocs-customer-example/)
+- [Connectx Address Example](https://apis.io/examples/amdocs/connectx-address-example/)
+- [Connectx Customer Example](https://apis.io/examples/amdocs/connectx-customer-example/)
+- [Connectx Customer List Example](https://apis.io/examples/amdocs/connectx-customer-list-example/)
+- [Connectx Customer Request Example](https://apis.io/examples/amdocs/connectx-customer-request-example/)
+- [Connectx Customer Update Example](https://apis.io/examples/amdocs/connectx-customer-update-example/)
+- [Connectx Invoice Example](https://apis.io/examples/amdocs/connectx-invoice-example/)
+- [Connectx Invoice Line Item Example](https://apis.io/examples/amdocs/connectx-invoice-line-item-example/)
+- [Connectx Invoice List Example](https://apis.io/examples/amdocs/connectx-invoice-list-example/)
+- [Connectx Pagination Example](https://apis.io/examples/amdocs/connectx-pagination-example/)
+- [Connectx Product Example](https://apis.io/examples/amdocs/connectx-product-example/)
+- [Connectx Product List Example](https://apis.io/examples/amdocs/connectx-product-list-example/)
+- [Connectx Subscription Example](https://apis.io/examples/amdocs/connectx-subscription-example/)
+- [Connectx Subscription List Example](https://apis.io/examples/amdocs/connectx-subscription-list-example/)
+- [Connectx Subscription Request Example](https://apis.io/examples/amdocs/connectx-subscription-request-example/)
+
+#### Collections (5)
+
+Postman and Open Collection request collections.
+
+- [Amdocs connectX BSS Billing API](https://apis.io/collections/amdocs/open-amdocs-billing-api/)
+- [Amdocs connectX BSS API](https://apis.io/collections/amdocs/open-amdocs-connectx/)
+- [Amdocs connectX BSS Billing Customers API](https://apis.io/collections/amdocs/open-amdocs-customers-api/)
+- [Amdocs connectX BSS Billing Products API](https://apis.io/collections/amdocs/open-amdocs-products-api/)
+- [Amdocs connectX BSS Billing Subscriptions API](https://apis.io/collections/amdocs/open-amdocs-subscriptions-api/)
+
+#### Governance rules (3)
+
+Spectral rulesets for the provider's contracts.
+
+- [Amdocs — asyncapi rules](https://apis.io/rules/amdocs/amdocs-asyncapi-spectral-rules/)
+- [Amdocs — jsonschema rules](https://apis.io/rules/amdocs/amdocs-jsonschema-spectral-rules/)
+- [Amdocs API Rules](https://apis.io/rules/amdocs/amdocs-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Amdocs Authentication](https://apis.io/security/amdocs/amdocs-authentication/)
+- [Amdocs Domain Security](https://apis.io/security/amdocs/amdocs-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Amdocs Scopes](https://apis.io/scopes/amdocs/amdocs-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Amdocs Plans Pricing](https://apis.io/plans/amdocs/amdocs-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Amdocs Rate Limits](https://apis.io/rate-limits/amdocs/amdocs-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Amdocs Finops](https://apis.io/finops/amdocs/amdocs-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.amdocs.com/)
-- [Portal](https://devportal.amdocs-dbs.com/)
 - [Documentation](https://knowledge.amdocs-dbs.com/)
-- [Getting Started](https://developer.amdocs-dbs.com/reference/getting-started-with-your-api)
-- [GitHub Organization](https://github.com/open-amdocs)
-- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/json-schema/amdocs-customer-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](https://raw.githubusercontent.com/api-evangelist/amdocs/refs/heads/main/json-ld/amdocs-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Solutions](undefined)
+- [Getting started](https://developer.amdocs-dbs.com/reference/getting-started-with-your-api)
+- [GitHub](https://github.com/open-amdocs)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 34.1** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 61.8 |
+| Contract governance | 13.6 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 39.3 |
+| Access clarity | 5.3 |
+
+**Agent readiness 21.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 28.3** — Telecommunications
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/amdocs/](https://apis.io/providers/amdocs/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amdocs: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amdocs/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
