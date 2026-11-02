@@ -1,0 +1,67 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Amdocs
+providerId: amdocs
+created: '2026-05-04'
+# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
+# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
+method: generated
+modified: '2026-05-05'
+reconciled: false
+tags:
+  - Telecom
+  - BSS
+  - OSS
+  - Billing
+  - Customer Management
+  - MVNO
+  - 5G
+  - SaaS
+description: >-
+  Amdocs sells connectX and its broader BSS/OSS portfolio (NetCracker, MarketONE) under enterprise contracts negotiated directly with telecom operators. No public price list is published. Plans are scoped to subscriber bands, deployed modules (billing, provisioning, customer management, charging), and AWS hosting region.
+notes: >-
+  Amdocs connectX is a B2B cloud-native BSS SaaS platform sold to telecom operators under enterprise master service agreements. Pricing is bespoke per operator (subscriber count, modules enabled, AWS region) and is not published publicly. Rate limits and quotas are governed by per-tenant capacity provisioning. Reconcile when Amdocs publishes a public pricing or rate-limit page.
+sources:
+  - https://devportal.amdocs-dbs.com/
+  - https://developer.amdocs-dbs.com/reference/getting-started-with-your-api
+plans:
+  - id: amdocs-overview
+    name: Amdocs - Pricing Overview
+    type: enterprise
+    description: >-
+      Placeholder plan reflecting that Amdocs does not publish a public,
+      machine-readable API price list. Pricing is bespoke per engagement.
+    entries:
+      - label: API Access
+        name: api_access
+        type: flat
+        metric: varies
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: contact sales
+        userMultiplied: false
+    elements:
+      - name: Negotiated Access
+      - name: Bilateral Agreement
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - subscription
+  units:
+  - negotiated
+  plans:
+  - name: Amdocs - Pricing Overview
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - negotiated
+    periods:
+    - per-use
